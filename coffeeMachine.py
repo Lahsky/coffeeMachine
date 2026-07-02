@@ -69,6 +69,7 @@ def prepararBebida():
         print(".")
     time.sleep(1)
     print("Sua bebida está pronta!")
+    print()
 
 def somarDinheiro(listaVal, listaDinCliente):
     '''
@@ -92,6 +93,7 @@ def somarDinheiro(listaVal, listaDinCliente):
                 if val >= 0:
                     listaDinCliente[i] = val
                     break
+    print()
 
 def dinCliente(listaVal, listaDinCliente):
     '''
@@ -161,6 +163,7 @@ def darTroco(troco, listaVal, listaCaixa):
         listaCaixa (lista): Lista que contém a quantidade de notas e moedas no caixa da máquina
     '''
     i = 0
+    print()
     print("Acompanhe seu troco: ")
     while troco != 0:
         if i > 11:
@@ -171,6 +174,8 @@ def darTroco(troco, listaVal, listaCaixa):
             print(f"R$ {listaVal[i]}")
             troco = round(troco - listaVal[i], 2)
             listaCaixa[i] = listaCaixa[i] - 1
+            time.sleep(0.1)
+    
 
 def vendaDoProduto(din, valorProd, listaVal, listaCaixa, listaDinCliente):
     if din >= valorProd and verificarCaixa(din - valorProd, listaVal, listaCaixa, listaDinCliente) == True:
@@ -202,18 +207,120 @@ def venda(din, valorProd, listaVal, listaCaixa, listaDinCliente):
     somarDinheiro(listaVal, listaDinCliente)
     din = din + dinCliente(listaVal, listaDinCliente)
     vendaDoProduto(din, valorProd, listaVal, listaCaixa, listaDinCliente)
+
+def escolhaProd(cod):
+    match cod:
+        case 1:
+            return 2.5
+        case 2:
+            return 3.5
+        case 3:
+            return 3
+        
+def precoProd(lista):
+    return lista[2]
+
+def organizarPosicao(listaPosicao, statusProd):
+    disp = 0
+    indis = len(listaPosicao) - 1
+    for i in range(len(listaPosicao)):
+        if statusProd[i] == 1:
+            listaPosicao[disp] = i + 1
+            disp = disp + 1
+        else:
+            listaPosicao[indis] = i + 1
+            indis = indis - 1
     
+def verificaDisp(listaPosicao, statusProd):
+    pos = 0
+    preco = ""
+    passo = 0
+    for i in range(len(listaPosicao)):
+        match listaPosicao[i]:
+            case 1:
+                """ print(f"| {i + 1}. {prodEspresso[1]}", end="")
+                pos = 0
+                preco = prodEspresso[2]
+                passo = len(prodEspresso[1]) """
+                print(f"| {i + 1}. Café Espresso",end="")
+                pos = 0
+                preco = "2,50"
+                passo = 13
+            case 2:
+                print(f"| {i + 1}. Cappuccino",end="")
+                pos = 1
+                preco = "3,50"
+                passo = 10
+            case 3:
+                print(f"| {i + 1}. Latte",end="")
+                pos = 2
+                preco = "3,00"
+                passo = 5
+        if statusProd[pos] == 1:
+            print("-" * (32 - passo),end="")
+            print(f"R$ {preco} |")
+        else:
+            passo = passo + 5
+            print("-" * (32 - passo),end="")
+            print("Indisponível |")
+
+
+
+
+""" def infEspresso():
+    print("Café Espresso (P): R$ 3,50")
+    print("2g de café sóluvel")
+    print("50ml de água")
+    print()
+    print("Café Espresso (M): R$ 5,25")
+    print("4g de café sóluvel")
+    print("100ml de água")
+    print()
+    print("Café Espresso (G): R$ 5,95")
+    print("6g de café sóluvel")
+    print("150ml de água")
+    print() """
+
+
 def main():
     limpaTela()
-
 
     listaVal = [100, 50, 20, 10, 5, 2, 1, 0.50, 0.25, 0.10, 0.05, 0.01]
     listaCaixa = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
     listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    listaPosicao = [0, 0, 0]
+
+    # Produtos
+    prodEspresso = [1, "Café Espresso", 2.5, 0, 0]
+    prodCafePreto = 
+    prodLatte = [3, "Latte", 3, 1, 0]
+    prodCafeComLeite = 
+    prodCappuccino = [2, "Cappuccino", 3.5, 1, 0]
+    prodMacchiato = 
+    prodMocha = 
+    prodChocoQuente = 
+    
+
+    statusProd = [prodEspresso[3], prodCappuccino[3], prodLatte[3]]
     din = 0
-    valorProd = 2.5
 
     
-    # venda(din, valorProd, listaVal, listaCaixa, listaDinCliente)
+
+    organizarPosicao(listaPosicao, statusProd)
+    print(listaPosicao)
+    verificaDisp(listaPosicao, statusProd)
+
+    cod = int(input("Digite qual sua bebida: "))
+
+    """ if din == 0:
+        venda(din, precoProd(escolhaProd(cod)), listaVal, listaCaixa, listaDinCliente)
+    else:
+        vendaDoProduto(din, precoProd(escolhaProd(cod)), listaVal, listaCaixa, listaDinCliente) """
+
+    """ if din == 0:
+        venda(din, escolhaProd(cod), listaVal, listaCaixa, listaDinCliente)
+    else:
+        vendaDoProduto(din, escolhaProd(cod), listaVal, listaCaixa, listaDinCliente) """
+
 
 main()
