@@ -231,55 +231,55 @@ def organizarPosicao(listaPosicao, statusProd):
             listaPosicao[indis] = i + 1
             indis = indis - 1
     
-def verificaDisp(listaPosicao, statusProd):
-    pos = 0
-    preco = ""
-    passo = 0
+def verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
     for i in range(len(listaPosicao)):
         match listaPosicao[i]:
             case 1:
-                """ print(f"| {i + 1}. {prodEspresso[1]}", end="")
+                print(f"║ {i + 1}. {prodEspresso[1]}", end="")
                 pos = 0
-                preco = prodEspresso[2]
-                passo = len(prodEspresso[1]) """
-                print(f"| {i + 1}. Café Espresso",end="")
-                pos = 0
-                preco = "2,50"
-                passo = 13
+                lista = prodEspresso
             case 2:
-                print(f"| {i + 1}. Cappuccino",end="")
+                print(f"║ {i + 1}. {prodCafePreto[1]}", end="")
                 pos = 1
-                preco = "3,50"
-                passo = 10
+                lista = prodCafePreto                
             case 3:
-                print(f"| {i + 1}. Latte",end="")
+                print(f"║ {i + 1}. {prodLatte[1]}", end="")
                 pos = 2
-                preco = "3,00"
-                passo = 5
+                lista = prodLatte 
+            case 4:
+                print(f"║ {i + 1}. {prodCafeComLeite[1]}", end="")
+                pos = 3
+                lista = prodCafeComLeite
+            case 5:
+                print(f"║ {i + 1}. {prodLeiteComCafe[1]}", end="")
+                pos = 4
+                lista = prodLeiteComCafe
+            case 6:
+                print(f"║ {i + 1}. {prodCappuccino[1]}", end="")
+                pos = 5
+                lista = prodCappuccino
+            case 7:
+                print(f"║ {i + 1}. {prodMacchiato[1]}", end="")
+                pos = 6
+                lista = prodMacchiato
+            case 8:
+                print(f"║ {i + 1}. {prodMocha[1]}", end="")
+                pos = 7
+                lista = prodMocha
+            case 9:
+                print(f"║ {i + 1}. {prodChocoQuente[1]}", end="")
+                pos = 8
+                lista = prodChocoQuente
+
+        preco = f"{lista[2]*tam:.2f}".replace(".", ",")
+        passo = len(lista[1])       
         if statusProd[pos] == 1:
-            print("-" * (32 - passo),end="")
-            print(f"R$ {preco} |")
+            print(" ", "-" * (30 - passo),end="")
+            print(f" R$ {preco} ║")
         else:
             passo = passo + 5
-            print("-" * (32 - passo),end="")
-            print("Indisponível |")
-
-
-
-
-""" def infEspresso():
-    print("Café Espresso (P): R$ 3,50")
-    print("2g de café sóluvel")
-    print("50ml de água")
-    print()
-    print("Café Espresso (M): R$ 5,25")
-    print("4g de café sóluvel")
-    print("100ml de água")
-    print()
-    print("Café Espresso (G): R$ 5,95")
-    print("6g de café sóluvel")
-    print("150ml de água")
-    print() """
+            print(" ", "-" * (30 - passo),end="")
+            print(" Indisponível ║")
 
 
 def main():
@@ -288,27 +288,35 @@ def main():
     listaVal = [100, 50, 20, 10, 5, 2, 1, 0.50, 0.25, 0.10, 0.05, 0.01]
     listaCaixa = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
     listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    listaPosicao = [0, 0, 0]
+    listaPosicao = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     # Produtos
-    prodEspresso = [1, "Café Espresso", 2.5, 0, 0]
-    prodCafePreto = 
+    prodEspresso = [1, "Café Espresso", 2.5, 1, 0]
+    prodCafePreto = [2, "Café Preto", 2, 1, 0]
     prodLatte = [3, "Latte", 3, 1, 0]
-    prodCafeComLeite = 
-    prodCappuccino = [2, "Cappuccino", 3.5, 1, 0]
-    prodMacchiato = 
-    prodMocha = 
-    prodChocoQuente = 
+    prodCafeComLeite = [4, "Café com Leite", 2.5, 1, 0]
+    prodLeiteComCafe = [5, "Leite com Café", 2.5, 1, 0]
+    prodCappuccino = [6, "Cappuccino", 3.5, 1, 0]
+    prodMacchiato = [7, "Macchiato", 4.5, 1, 0]
+    prodMocha = [8, "Mocha", 4.5, 1, 0]
+    prodChocoQuente = [9, "Chocolate Quente", 5.5, 1, 0]
+
+    statusProd = [prodEspresso[3], prodCafePreto[3], prodLatte[3], prodCafeComLeite[3], prodLeiteComCafe[3], prodCappuccino[3], prodMacchiato[3], prodMocha[3], prodChocoQuente[3]]
     
-
-    statusProd = [prodEspresso[3], prodCappuccino[3], prodLatte[3]]
     din = 0
+    agua = 1000
+    cafeSol = 100
+    cafeSolDesc = 100
+    leitePo = 100
+    chocoPo = 100
+    canela = 10
+    tam = 1.7
 
+    
     
 
     organizarPosicao(listaPosicao, statusProd)
-    print(listaPosicao)
-    verificaDisp(listaPosicao, statusProd)
+    verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
 
     cod = int(input("Digite qual sua bebida: "))
 
@@ -324,3 +332,33 @@ def main():
 
 
 main()
+
+def nada():
+    """ print(f"║ {i + 1}. Café Espresso",end="")
+        pos = 0
+        preco = "2,50"
+        passo = 13 """
+    """  case 2:
+        print(f"║ {i + 1}. Cappuccino",end="")
+        pos = 1
+        preco = "3,50"
+        passo = 10
+    case 3:
+        print(f"║ {i + 1}. Latte",end="")
+        pos = 2
+        preco = "3,00"
+        passo = 5 """
+    
+""" def infEspresso():
+    print("Café Espresso (P): R$ 3,50")
+    print("2g de café sóluvel")
+    print("50ml de água")
+    print()
+    print("Café Espresso (M): R$ 5,25")
+    print("4g de café sóluvel")
+    print("100ml de água")
+    print()
+    print("Café Espresso (G): R$ 5,95")
+    print("6g de café sóluvel")
+    print("150ml de água")
+    print() """
