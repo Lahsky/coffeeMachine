@@ -152,7 +152,7 @@ def verificarCaixa(troco, listaVal, listaCaixa, listaDinCliente):
 
 def darTroco(troco, listaVal, listaCaixa):
     '''
-    Função que dá o troco pra o cliente
+    Função que dá o troco para o cliente
 
     Esta função recebe a quantidade de troco que deve ser dado ao cliente, imprime esses valores, nota por nota e centavo por centavo.
     Retira a mesma quantidade de nota e moedas do caixa
@@ -171,67 +171,41 @@ def darTroco(troco, listaVal, listaCaixa):
         elif listaCaixa[i] == 0 or (troco - listaVal[i]) < 0:
             i = i + 1
         else:
-            print(f"R$ {listaVal[i]}")
+            print(f"R$ {listaVal[i]:.2f}")
             troco = round(troco - listaVal[i], 2)
             listaCaixa[i] = listaCaixa[i] - 1
             time.sleep(0.1)
-    
 
-def vendaDoProduto(din, valorProd, listaVal, listaCaixa, listaDinCliente):
-    if din >= valorProd and verificarCaixa(din - valorProd, listaVal, listaCaixa, listaDinCliente) == True:
-        din = din - valorProd
-        somarLista(listaCaixa, listaDinCliente)
-        listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-        prepararBebida()
-        
-        res = input(f"Restam R$ {din}. Deseja comprar outra bebida? S/N: ")
-        if res == "S" or res == "s":
-            print()
-            vendaDoProduto(din, valorProd, listaVal, listaCaixa, listaDinCliente)
-            # Função que levará para os produtos
-        elif din > 0:
-            darTroco(din, listaVal, listaCaixa)
+def verificaTam():
+    while True:
+        tam = input("Digite o tamanho da sua bebida P / M / G: ")
+        if tam == "P" or tam == "p":
+            return 1
+        elif tam == "M" or tam == "m":
+            return 1.5
+        elif tam == "G" or tam == "g":
+            return 1.7
+        elif tam == 0 or tam == "0":
+            return 0
         else:
-            print("Você não possui troco")
-            print("Volte sempre!")
-    else:
-        print("Dinheiro insuficiente!")
-        if din > 0:
-            darTroco(din, listaVal, listaCaixa)
-        else:
-            print("Você não possui troco")
-            print("Volte sempre!")
-        
-def venda(din, valorProd, listaVal, listaCaixa, listaDinCliente):
-    somarDinheiro(listaVal, listaDinCliente)
-    din = din + dinCliente(listaVal, listaDinCliente)
-    vendaDoProduto(din, valorProd, listaVal, listaCaixa, listaDinCliente)
+            print("Parámetro inválido!")
 
-def escolhaProd(cod):
-    match cod:
-        case 1:
-            return 2.5
-        case 2:
-            return 3.5
-        case 3:
-            return 3
-        
-def precoProd(lista):
-    return lista[2]
-
-def organizarPosicao(listaPosicao, statusProd):
-    disp = 0
-    indis = len(listaPosicao) - 1
-    for i in range(len(listaPosicao)):
-        if statusProd[i] == 1:
-            listaPosicao[disp] = i + 1
-            disp = disp + 1
+def verificaDesc():
+    while True:
+        desc = input("Gostaria da sua bebida descafeinada? S / N: ")
+        if desc == "S" or desc == "s":
+            return 1
+        elif desc == "N" or desc == "n":
+            return 0
         else:
-            listaPosicao[indis] = i + 1
-            indis = indis - 1
-    
+            print("Parâmetro inválido")
+
 def verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
+    #print("            ╔═════════════════════╗")
+    #print("        ╔═══╣     BEM-VINDO À     ║")
+    #print("        ╚═══╣   NOME DA EMPRESA   ║")
+    #print("            ╚══╦═══════════════╦══╝")
+    print("╔══════════════╩═══════════════╩══════════════╗")
     for i in range(len(listaPosicao)):
         match listaPosicao[i]:
             case 1:
@@ -280,6 +254,157 @@ def verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, pro
             passo = passo + 5
             print(" ", "-" * (30 - passo),end="")
             print(" Indisponível ║")
+    print("╚═════════════════════════════════════════════╝")
+
+def escolheProd(listaPosicao, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
+    print("Digite o número da sua bebida: ", end="")
+    cod = digitarIntPositivo()
+    while cod == None or cod < 1 or cod > 9:
+        print("Digite o número da sua bebida: ", end="")
+        cod = digitarIntPositivo()
+    match listaPosicao[cod - 1]:
+        case 1:
+            return prodEspresso
+        case 2:
+            return prodCafePreto
+        case 3:
+            return prodLatte
+        case 4:
+            return prodCafeComLeite
+        case 5:
+            return prodLeiteComCafe
+        case 6:
+            return prodCappuccino
+        case 7:
+            return prodMacchiato
+        case 8:
+            return prodMocha
+        case 9:
+            return prodChocoQuente
+
+def vendaDoProduto(din, valorProd, listaVal, listaCaixa, listaDinCliente):
+    if din >= valorProd and verificarCaixa(din - valorProd, listaVal, listaCaixa, listaDinCliente) == True:
+        din = din - valorProd
+        somarLista(listaCaixa, listaDinCliente)
+        listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+        prepararBebida()
+        
+        res = input(f"Restam R$ {din:.2f}. Deseja comprar outra bebida? S/N: ")
+        if res == "S" or res == "s":
+            print()
+            vendaDoProduto(din, valorProd, listaVal, listaCaixa, listaDinCliente)
+            # Função que levará para os produtos
+        elif din > 0:
+            darTroco(din, listaVal, listaCaixa)
+        else:
+            print("Você não possui troco")
+            print("Volte sempre!")
+    else:
+        print("Dinheiro insuficiente!")
+        if din > 0:
+            darTroco(din, listaVal, listaCaixa)
+        else:
+            print("Você não possui troco")
+            print("Volte sempre!")
+        
+def venda(din, valorProd, listaVal, listaCaixa, listaDinCliente):
+    somarDinheiro(listaVal, listaDinCliente)
+    din = din + dinCliente(listaVal, listaDinCliente)
+    vendaDoProduto(din, valorProd, listaVal, listaCaixa, listaDinCliente)
+        
+def organizarPosicao(listaPosicao, statusProd):
+    disp = 0
+    indis = len(listaPosicao) - 1
+    for i in range(len(listaPosicao)):
+        if statusProd[i] == 1:
+            listaPosicao[disp] = i + 1
+            disp = disp + 1
+        else:
+            listaPosicao[indis] = i + 1
+            indis = indis - 1
+    
+def compraProd(tam, desc, prodCliente, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela):
+    if desc == 1:
+        if tam == 1:
+            cafeSolDesc = cafeSolDesc - prodCliente[5]
+        elif tam == 1.5:
+            cafeSolDesc = cafeSolDesc - prodCliente[5] * 2
+        else:
+            cafeSolDesc = cafeSolDesc - prodCliente[5] * 3
+    else:
+        if tam == 1:
+            cafeSol = cafeSol - prodCliente[5]
+        elif tam == 1.5:
+            cafeSol = cafeSol - prodCliente[5] * 2
+        else:
+            cafeSol = cafeSol - prodCliente[5] * 3
+    if tam == 1:
+        agua = agua - 50
+        leitePo = leitePo - prodCliente[6]
+        chocoPo = chocoPo - prodCliente[7]
+        canela = canela - prodCliente[8]
+    elif tam == 1.5:
+        agua = agua - 100
+        leitePo = leitePo - prodCliente[6] * 2
+        chocoPo = chocoPo - prodCliente[7] * 2
+        canela = canela - prodCliente[8] * 2
+    else:
+        agua = agua - 150
+        leitePo = leitePo - prodCliente[6] * 3
+        chocoPo = chocoPo - prodCliente[7] * 3
+        canela = canela - prodCliente[8] * 3
+    return agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela 
+        
+def verificaStatus(tam, desc, statusProd, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
+    if tam == 1:
+        mult = 1
+    elif tam == 1.5:
+        mult = 2
+    else:
+        mult = 3
+    
+    if desc == 1:
+        if prodEspresso[5] * mult > cafeSolDesc:
+            prodEspresso[3] = 0
+        if prodCafePreto[5] * mult > cafeSolDesc:
+            prodCafePreto[3] = 0
+        if prodLatte[5] * mult > cafeSolDesc or prodLatte[6] * mult > leitePo:
+            prodLatte[3] = 0
+        if prodCafeComLeite[5] * mult > cafeSolDesc or prodCafeComLeite[6] * mult > leitePo:
+            prodCafeComLeite[3] = 0
+        if prodLeiteComCafe[5] * mult > cafeSolDesc or prodLeiteComCafe[6] * mult > leitePo:
+            prodLeiteComCafe[3] = 0
+        if prodCappuccino[5] * mult > cafeSolDesc or prodCappuccino[6] * mult > leitePo or prodCappuccino[7] * mult > chocoPo or prodCappuccino[8] * mult > canela:
+            prodCappuccino[3] = 0
+        if prodMacchiato[5] * mult > cafeSolDesc or prodMacchiato[6] * mult > leitePo:
+            prodMacchiato[3] = 0
+        if prodMocha[5] * mult > cafeSolDesc or prodMocha[6] * mult > leitePo or prodMocha[7] * mult > chocoPo:
+            prodMocha[3] = 0
+        if prodChocoQuente[5] * mult > cafeSolDesc or prodChocoQuente[6] * mult > leitePo or prodChocoQuente[7] * mult > chocoPo:
+            prodChocoQuente[3] = 0
+    else:
+        if prodEspresso[5] * mult > cafeSol:
+            prodEspresso[3] = 0
+        if prodCafePreto[5] * mult > cafeSol:
+            prodCafePreto[3] = 0
+        if prodLatte[5] * mult > cafeSol or prodLatte[6] * mult > leitePo:
+            prodLatte[3] = 0
+        if prodCafeComLeite[5] * mult > cafeSol or prodCafeComLeite[6] * mult > leitePo:
+            prodCafeComLeite[3] = 0
+        if prodLeiteComCafe[5] * mult > cafeSol or prodLeiteComCafe[6] * mult > leitePo:
+            prodLeiteComCafe[3] = 0
+        if prodCappuccino[5] * mult > cafeSol or prodCappuccino[6] * mult > leitePo or prodCappuccino[7] * mult > chocoPo or prodCappuccino[8] * mult > canela:
+            prodCappuccino[3] = 0
+        if prodMacchiato[5] * mult > cafeSol or prodMacchiato[6] * mult > leitePo:
+            prodMacchiato[3] = 0
+        if prodMocha[5] * mult > cafeSol or prodMocha[6] * mult > leitePo or prodMocha[7] * mult > chocoPo:
+            prodMocha[3] = 0
+        if prodChocoQuente[5] * mult > cafeSol or prodChocoQuente[6] * mult > leitePo or prodChocoQuente[7] * mult > chocoPo:
+            prodChocoQuente[3] = 0
+    statusProd[0], statusProd[1], statusProd[2], statusProd[3], statusProd[4], statusProd[5], statusProd[6], statusProd[7], statusProd[8], = prodEspresso[3], prodCafePreto[3], prodLatte[3], prodCafeComLeite[3], prodLeiteComCafe[3], prodCappuccino[3], prodMacchiato[3], prodMocha[3], prodChocoQuente[3]
+            
+
 
 
 def main():
@@ -289,65 +414,50 @@ def main():
     listaCaixa = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
     listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     listaPosicao = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    statusProd = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     # Produtos
-    prodEspresso = [1, "Café Espresso", 2.5, 1, 0]
-    prodCafePreto = [2, "Café Preto", 2, 1, 0]
-    prodLatte = [3, "Latte", 3, 1, 0]
-    prodCafeComLeite = [4, "Café com Leite", 2.5, 1, 0]
-    prodLeiteComCafe = [5, "Leite com Café", 2.5, 1, 0]
-    prodCappuccino = [6, "Cappuccino", 3.5, 1, 0]
-    prodMacchiato = [7, "Macchiato", 4.5, 1, 0]
-    prodMocha = [8, "Mocha", 4.5, 1, 0]
-    prodChocoQuente = [9, "Chocolate Quente", 5.5, 1, 0]
+    # ProdLista = [ID, nome, preco, status, vendas, cafeSoluvel, leitePo, chocoPo, canela]
+    prodEspresso = [1, "Café Espresso", 2.5, 1, 0, 2, 0, 0, 0]
+    prodCafePreto = [2, "Café Preto", 2, 1, 0, 2, 0, 0, 0]
+    prodLatte = [3, "Latte", 3, 1, 0, 2, 30, 0, 0]
+    prodCafeComLeite = [4, "Café com Leite", 2.5, 1, 0, 2, 15, 0, 0]
+    prodLeiteComCafe = [5, "Leite com Café", 2.5, 1, 0, 2, 35, 0, 0]
+    prodCappuccino = [6, "Cappuccino", 3.5, 1, 0, 4, 20, 5, 0.3]
+    prodMacchiato = [7, "Macchiato", 4.5, 1, 0, 3, 7, 0, 0]
+    prodMocha = [8, "Mocha", 4.5, 1, 0, 3, 15, 15, 0]
+    prodChocoQuente = [9, "Chocolate Quente", 5.5, 1, 0, 0, 25, 15, 0]
 
-    statusProd = [prodEspresso[3], prodCafePreto[3], prodLatte[3], prodCafeComLeite[3], prodLeiteComCafe[3], prodCappuccino[3], prodMacchiato[3], prodMocha[3], prodChocoQuente[3]]
-    
     din = 0
     agua = 1000
-    cafeSol = 100
-    cafeSolDesc = 100
-    leitePo = 100
-    chocoPo = 100
-    canela = 10
-    tam = 1.7
+    cafeSol = 1000
+    cafeSolDesc = 1000
+    leitePo = 1000
+    chocoPo = 0
+    canela = 100
 
-    
-    
+    # Mudar o troco, pois quando não tem dinheiro, é subtraido para dar o troco
 
+    tam = verificaTam()
+    desc = verificaDesc()
+    verificaStatus(tam, desc, statusProd, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
     organizarPosicao(listaPosicao, statusProd)
     verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
+    prodCliente = escolheProd(listaPosicao, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
+    print(prodCliente)
+    precoProd = prodCliente[2] * tam
+    agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela = compraProd(tam, desc, prodCliente, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela)
 
-    cod = int(input("Digite qual sua bebida: "))
-
-    """ if din == 0:
-        venda(din, precoProd(escolhaProd(cod)), listaVal, listaCaixa, listaDinCliente)
+    if din == 0:
+        venda(din, precoProd, listaVal, listaCaixa, listaDinCliente)
     else:
-        vendaDoProduto(din, precoProd(escolhaProd(cod)), listaVal, listaCaixa, listaDinCliente) """
+        vendaDoProduto(din, precoProd, listaVal, listaCaixa, listaDinCliente)
 
-    """ if din == 0:
-        venda(din, escolhaProd(cod), listaVal, listaCaixa, listaDinCliente)
-    else:
-        vendaDoProduto(din, escolhaProd(cod), listaVal, listaCaixa, listaDinCliente) """
+    print(listaCaixa)
+    print(f"Água: {agua}; Café Solúvel: {cafeSol}; Café Solúvel Descafeinado: {cafeSolDesc}; Leite em Pó: {leitePo}; Chocolate em Pó: {chocoPo}; Canela: {canela}")
 
 
 main()
-
-def nada():
-    """ print(f"║ {i + 1}. Café Espresso",end="")
-        pos = 0
-        preco = "2,50"
-        passo = 13 """
-    """  case 2:
-        print(f"║ {i + 1}. Cappuccino",end="")
-        pos = 1
-        preco = "3,50"
-        passo = 10
-    case 3:
-        print(f"║ {i + 1}. Latte",end="")
-        pos = 2
-        preco = "3,00"
-        passo = 5 """
     
 """ def infEspresso():
     print("Café Espresso (P): R$ 3,50")
