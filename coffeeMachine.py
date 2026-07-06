@@ -12,6 +12,752 @@ def limpaTela():
     else:
         system("clear")
 
+def xicaraG():
+    print("              ഽ       ഽ       ഽ       ")
+    print("               ഽ       ഽ       ഽ       ")
+    print("              ഽ       ഽ       ഽ       ")
+    print("               ഽ       ഽ       ഽ       ")
+    print("       ╔═══════════════════════════════╗")
+    print("   ╔═══║ ★                          ★  ║       ")
+    print("  ╔╝   ║ ★                          ★  ║       ")
+    print("  ║    ║ ★        STARCOFFEE        ★  ║       ")
+    print("  ╚╗   ║ ★                          ★  ║       ")
+    print("   ╚═══║ ★                          ★  ║       ")
+    print("       ╚═╦═══════════════════════════╦═╝        ")
+
+def telaMsgSemAgua():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║                                             ║")
+    print("║         Infelizmente a máquina está         ║")
+    print("║            sem água para bebidas            ║")
+    print("║                                             ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaMsgSemAguaM():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║                                             ║")
+    print("║         Infelizmente a máquina está         ║")
+    print("║        sem água para bebidas médias         ║")
+    print("║                                             ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaMsgSemAguaG():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║                                             ║")
+    print("║         Infelizmente a máquina está         ║")
+    print("║        sem água para bebidas grandes        ║")
+    print("║                                             ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaMsgSemCopoP():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║                                             ║")
+    print("║         Infelizmente a máquina está         ║")
+    print("║   sem copos para bebidas pequenas (50 mL)   ║")
+    print("║                                             ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaMsgSemCopoM():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║                                             ║")
+    print("║         Infelizmente a máquina está         ║")
+    print("║   sem copos para bebidas médias (100 mL)    ║")
+    print("║                                             ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaMsgSemCopoG():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║                                             ║")
+    print("║         Infelizmente a máquina está         ║")
+    print("║   sem copos para bebidas grandes (150 mL)   ║")
+    print("║                                             ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaProdIndisp(prodCliente):
+    limpaTela()
+    if len(prodCliente[1]) % 2 == 0:
+        passo1 = (42 - len(prodCliente[1])) // 2
+        passo2 = passo1 + 1
+    else:
+        passo1 = (43 - len(prodCliente[1])) // 2
+        passo2 = passo1
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║                                             ║")
+    print("║                Infelizmente                 ║")
+    print("║", " " * passo1,end="")
+    print(prodCliente[1],end="")
+    print(" " * passo2, "║")
+    print("║       não está disponível no momento!       ║")
+    print("║                                             ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+    time.sleep(3)
+
+def telaConfimacao(prodCliente):
+    limpaTela()
+    if len(prodCliente[1]) % 2 == 0:
+        passo1 = (42 - len(prodCliente[1])) // 2
+        passo2 = passo1
+    else:
+        passo1 = (42 - len(prodCliente[1])) // 2
+        passo2 = passo1 + 1
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅ Deseja preparar ┅┅┅┅┅┅┅┅┅ ★   ║")
+    print("║                                             ║")
+    print("║", " " * passo1,end="")
+    print(f"{prodCliente[1]}?",end="")
+    print(" " * passo2, "║")
+    print("║                                             ║")
+    print("║           1. Sim           0. Não           ║")
+    print("║                                             ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaDinCliente(din):
+    limpaTela()
+    if verQuantNum(din) % 2 == 0:
+        passo1 = (37 - verQuantNum(din)) // 2
+        passo2 = passo1 + 1
+    else:
+        passo1 = (37 - verQuantNum(din)) // 2
+        passo2 = passo1
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅ Dinhero Total ┅┅┅┅┅┅┅┅┅┅ ★   ║")
+    print("║                                             ║")
+    print("║", " " * passo1,end="")
+    print(f"R$ {din:.2f}".replace(".",","),end="")
+    print(" " * passo2, "║")
+    print("║                                             ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaOutraBeb():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅ Outra bebida? ┅┅┅┅┅┅┅┅┅┅ ★   ║")
+    print("║                                             ║")
+    print("║           1. Sim           0. Não           ║")
+    print("║                                             ║") 
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaFinalizar():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅ Deseja Finalizar? ┅┅┅┅┅┅┅┅ ★   ║")
+    print("║                                             ║")
+    print("║           1. Sim           0. Não           ║")
+    print("║                                             ║") 
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaPrefencia():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║                                             ║")
+    print("║   ★ ┅┅┅┅ Agradecemos a Preferência ┅┅┅┅ ★   ║")
+    print("║                                             ║") 
+    print("╚═════════════════════════════════════════════╝")
+    print()
+    time.sleep(2)
+
+def telaInicial():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅ Escolha uma opção ┅┅┅┅┅┅┅┅ ★   ║")
+    print("║ 1. Bebidas                                  ║")            
+    print("║ 2. Configurações                            ║")
+    print("║ 3. Quem somos                               ║")
+    print("║ 4. Finalizar                                ║")  
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaTamBeb():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅ Escolha o tamanho da bebida ┅┅┅ ★   ║")
+    print("║ 1. Pequeno (P) ---------------------- 50 mL ║")
+    print("║ 2. Médio (M) ----------------------- 100 mL ║")
+    print("║ 3. Grande (G) ---------------------- 150 mL ║")
+    print("║ 0. Voltar                                   ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaDescCafe():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅ Escolha o tipo de preparo ┅┅┅┅ ★   ║")
+    print("║ 1. Descafeinado                             ║")
+    print("║ 2. Cafeinado                                ║")
+    print("║ 0. Voltar                                   ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def prepararBebida(prodCliente):
+    '''
+    Função que prepara a bebida do cliente
+
+    Esta função exibe uma mensagem que a bebida do cliente que está sendo preparada e outra que a bebida está pronta
+    '''
+    limpaTela()
+    print("")
+    print("")
+    print("")
+    print("               ഽ       ഽ       ഽ       ")
+    print("       ╔═══════════════════════════════╗")
+    print("   ╔═══║ ★                          ★  ║       ")
+    print("  ╔╝   ║ ★                          ★  ║       ")
+    print("  ║    ║ ★        STARCOFFEE        ★  ║       ")
+    print("  ╚╗   ║ ★                          ★  ║       ")
+    print("   ╚═══║ ★                          ★  ║       ")
+    print("       ╚═══════════════════════════════╝        ")
+    print()
+    print()
+    print(f"{prodCliente[1]} está sendo preparado.")
+    time.sleep(1)
+    limpaTela()
+    print("")
+    print("")
+    print("              ഽ       ഽ       ഽ       ")
+    print("               ഽ       ഽ       ഽ       ")
+    print("       ╔═══════════════════════════════╗")
+    print("   ╔═══║ ★                          ★  ║       ")
+    print("  ╔╝   ║ ★                          ★  ║       ")
+    print("  ║    ║ ★        STARCOFFEE        ★  ║       ")
+    print("  ╚╗   ║ ★                          ★  ║       ")
+    print("   ╚═══║ ★                          ★  ║       ")
+    print("       ╚═══════════════════════════════╝        ")
+    print()
+    print()
+    print(f"{prodCliente[1]} está sendo preparado..")
+    time.sleep(1)
+    limpaTela()
+    print("")
+    print("               ഽ       ഽ       ഽ       ")
+    print("              ഽ       ഽ       ഽ       ")
+    print("               ഽ       ഽ       ഽ       ")
+    print("       ╔═══════════════════════════════╗")
+    print("   ╔═══║ ★                          ★  ║       ")
+    print("  ╔╝   ║ ★                          ★  ║       ")
+    print("  ║    ║ ★        STARCOFFEE        ★  ║       ")
+    print("  ╚╗   ║ ★                          ★  ║       ")
+    print("   ╚═══║ ★                          ★  ║       ")
+    print("       ╚═══════════════════════════════╝        ")
+    print()
+    print()
+    print(f"{prodCliente[1]} está sendo preparado...")
+    time.sleep(1)
+    limpaTela()
+    print("              ഽ       ഽ       ഽ       ")
+    print("               ഽ       ഽ       ഽ       ")
+    print("              ഽ       ഽ       ഽ       ")
+    print("               ഽ       ഽ       ഽ       ")
+    print("       ╔═══════════════════════════════╗")
+    print("   ╔═══║ ★                          ★  ║       ")
+    print("  ╔╝   ║ ★                          ★  ║       ")
+    print("  ║    ║ ★        STARCOFFEE        ★  ║       ")
+    print("  ╚╗   ║ ★                          ★  ║       ")
+    print("   ╚═══║ ★                          ★  ║       ")
+    print("       ╚═══════════════════════════════╝        ")
+    print()
+    print()
+    print(f"Seu {prodCliente[1]} está pronto!")
+    print()
+    time.sleep(2)
+
+def telaConfiguracoes():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅ Configurações ┅┅┅┅┅┅┅┅┅┅ ★   ║")
+    print("║ 1. Informações internas                     ║")
+    print("║ 2. Informações dos produtos                 ║")
+    print("║ 3. Reposição                                ║")
+    print("║ 0. Voltar                                   ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaInfInternas(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
+    limpaTela()
+    faturamento = calcFaturamento(prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅ Informações Internas: ┅┅┅┅┅┅ ★   ║")
+    print(f"║ Água: {agua} mL", end="")
+    print(" " * (34 - verQuantNum(agua)), "║")
+    print(f"║ Café Solúvel: {cafeSol} g", end="")
+    print(" " * (27 - verQuantNum(cafeSol)), "║")
+    print(f"║ Café Solúvel Descafeinado: {cafeSolDesc} g", end="")
+    print(" " * (14 - verQuantNum(cafeSolDesc)), "║")
+    print(f"║ Leite em Pó: {leitePo} g", end="")
+    print(" " * (28 - verQuantNum(leitePo)), "║")
+    print(f"║ Chocolate em Pó: {chocoPo} g", end="")
+    print(" " * (24 - verQuantNum(chocoPo)), "║")
+    print(f"║ Canela: {canela} g", end="")
+    print(" " * (33 - verQuantNum(canela)), "║")
+    print(f"║ Copo (P) 80 ml: {copoP}", end="")
+    print(" " * (27 - verQuantNum(copoP)), "║")
+    print(f"║ Copo (M) 130 ml: {copoM}", end="")
+    print(" " * (26 - verQuantNum(copoM)), "║")
+    print(f"║ Copo (G) 180 ml: {copoG}", end="")
+    print(" " * (26 - verQuantNum(copoG)), "║")
+    print("║                                             ║")
+    print(f"║ Faturamento: R$ {faturamento:.2f}".replace(".", ","),end="")
+    print(" " * (24 - verQuantNum(faturamento)), "║")
+    print("║                                             ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+    input(" Pressione qualquer tecla para sair ")
+
+""" def telaQuemSomos():
+    limpaTela()
+    print("                       ★ Bem-vindo à Starcoffee Machine! ★")
+    print("                                           ☕")
+    print("                   Desenvolvemos máquinas inteligentes que oferecem")
+    print("            exímia praticidade e qualidade no preparo de bebidas cotidianas.")
+    print("        ")
+    print("★ ════════════════════════════════════ Missão ═════════════════════════════════════ ★")
+    print("")
+    print("  ☕ Oferecer um sistema eficiente e intuitivo no preparo de cafés de qualidade,")
+    print("   criando uma experiência confortável entre o usuário e máquina.")
+    print("")
+    print("★ ═════════════════════════════════════ Visão ═════════════════════════════════════ ★")
+    print("")
+    print("  ☕ Visamos nos tornar referência na fabricação de máquinas de bebida, expandindo")
+    print("   o nicho para além do café e estando sempre presente nas pausas para o café.")
+    print("")
+    print("★ ════════════════════════════════════ Valores ════════════════════════════════════ ★")
+    print("")
+    print("  ☕ Praticidade;   ☕ Conforto;   ☕ Compromisso com o cliente;")
+    print("  ☕ Organização;   ☕ Qualidade;  ☕ Ética sustentável.")
+    print("")
+    print("★ ════════════════════════════════ Desenvolvedores ════════════════════════════════ ★")
+    print("")
+    print("  ★ Leandro Alves Vieira")
+    print("  ★ Mateus Fagian")
+    print("  ★ Victor Ming Hur dos Santos Tsai")
+    print()
+    input("Pressione qualquer tecla para sair ") """
+
+def telaQuemSomos():
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║     ★ Bem-vindo à Starcoffee Machine ★      ║")
+    print("║                                             ║")
+    print("║     Desenvolvemos máquinas inteligentes     ║")
+    print("║      que oferecem exímia praticidade e      ║")
+    print("║ qualidade no preparo de bebidas cotidianas. ║")
+    print("║                                             ║")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅┅ Missão ┅┅┅┅┅┅┅┅┅┅┅┅┅ ★    ║")
+    print("║                                             ║")
+    print("║       Oferecer um sistema eficiente e       ║")
+    print("║ intuitivo no preparo de cafés de qualidade, ║")
+    print("║     criando uma experiência confortável     ║")
+    print("║          entre o usuário e máquina.         ║")
+    print("║                                             ║")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅┅┅ Visão ┅┅┅┅┅┅┅┅┅┅┅┅┅┅ ★   ║")
+    print("║                                             ║")
+    print("║ Visamos nos tornar referência na fabricação ║")
+    print("║      de máquinas de bebida, expandindo      ║")
+    print("║     o nicho para além do café e estando     ║")
+    print("║   sempre presente nas pausas para o café.   ║")
+    print("║                                             ║")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅┅ Valores ┅┅┅┅┅┅┅┅┅┅┅┅┅ ★   ║")
+    print("║                                             ║")
+    print("║               ☕ Praticidade                ║")
+    print("║               ☕ Organização                ║")
+    print("║                 ☕ Conforto                 ║")
+    print("║                ☕ Qualidade                 ║")
+    print("║            ☕ Ética sustentável             ║")
+    print("║        ☕ Compromisso com o cliente         ║")
+    print("║                                             ║")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅ Desenvolvedores ┅┅┅┅┅┅┅┅┅ ★   ║")
+    print("║                                             ║")
+    print("║           ★ Leandro Alves Vieira            ║")
+    print("║               ★ Mateus Fagian               ║")
+    print("║      ★ Victor Ming Hur dos Santos Tsai      ║")
+    print("║                                             ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+    input("Pressione qualquer tecla para voltar ")
+
+def infEspresso():
+    '''
+    Função que exibe as informações do espresso
+
+    Esta função imprime as informações do espresso nos tamanhos (P), (M) e (G)
+    '''
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅ Espresso ┅┅┅┅┅┅┅┅┅┅┅┅ ★    ║")
+    print("║                                             ║")
+    print("║ Espresso (P)                                ║")
+    print("║ Café solúvel: 2 g                           ║")
+    print("║ Água: 50 mL                                 ║")
+    print("║ Preço: R$ 3,50                              ║")
+    print("║                                             ║")
+    print("║ Espresso (M)                                ║")
+    print("║ Café solúvel: 4 g                           ║")
+    print("║ Água: 100 mL                                ║")
+    print("║ Preço: R$ 4,90                              ║")
+    print("║                                             ║")
+    print("║ Espresso (G)                                ║")
+    print("║ Café solúvel: 6 g                           ║")
+    print("║ Água: 150 mL                                ║")
+    print("║ Preço: R$ 5,60                              ║")
+    print("║                                             ║")
+    print("║     <-- Voltar (1) (0) (2) Avançar -->      ║")
+    print("║                    Sair                     ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def infCafePreto():
+    '''
+    Função que exibe as informações do café preto
+
+    Esta função imprime as informações do café preto nos tamanhos (P), (M) e (G)
+    '''
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅ Café Preto ┅┅┅┅┅┅┅┅┅┅┅ ★    ║")
+    print("║                                             ║")
+    print("║ Café Preto (P)                              ║")
+    print("║ Café solúvel: 0,75 g                        ║")
+    print("║ Água: 50 mL                                 ║")
+    print("║ Preço: R$ 2,50                              ║")
+    print("║                                             ║")
+    print("║ Café Preto (M)                              ║")
+    print("║ Café solúvel: 1,50 g                        ║")
+    print("║ Água: 100 mL                                ║")
+    print("║ Preço: R$ 3,50                              ║")
+    print("║                                             ║")
+    print("║ Café Preto (G)                              ║")
+    print("║ Café solúvel: 2,25 g                        ║")
+    print("║ Água: 150 mL                                ║")
+    print("║ Preço: R$ 4,00                              ║")
+    print("║                                             ║")
+    print("║     <-- Voltar (1) (0) (2) Avançar -->      ║")
+    print("║                    Sair                     ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def infLatte():
+    '''
+    Função que exibe as informações do latte
+
+    Esta função imprime as informações do latte nos tamanhos (P), (M) e (G)
+    '''
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅┅┅ Latte ┅┅┅┅┅┅┅┅┅┅┅┅┅┅ ★   ║")
+    print("║                                             ║")
+    print("║ Latte (P)                                   ║")
+    print("║ Café solúvel: 0,75 g                        ║")
+    print("║ Leite em pó: 12 g                           ║")
+    print("║ Água: 50 mL                                 ║")
+    print("║ Preço: R$ 3,50                              ║")
+    print("║                                             ║")
+    print("║ Latte (M)                                   ║")
+    print("║ Café solúvel: 1,50 g                        ║")
+    print("║ Leite em pó: 24 g                           ║")
+    print("║ Água: 100 mL                                ║")
+    print("║ Preço: R$ 4,90                              ║")
+    print("║                                             ║")
+    print("║ Latte (G)                                   ║")
+    print("║ Café solúvel: 2,25 g                        ║")
+    print("║ Leite em pó: 36 g                           ║")
+    print("║ Água: 150 mL                                ║")
+    print("║ Preço: R$ 5,60                              ║")
+    print("║                                             ║")
+    print("║     <-- Voltar (1) (0) (2) Avançar -->      ║")
+    print("║                    Sair                     ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def infCafeComLeite():
+    '''
+    Função que exibe as informações do café com leite
+
+    Esta função imprime as informações do café com leite nos tamanhos (P), (M) e (G)
+    '''
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅ Café com Leite ┅┅┅┅┅┅┅┅┅ ★    ║")
+    print("║                                             ║")
+    print("║ Café com Leite (P)                          ║")
+    print("║ Café solúvel: 0,75 g                        ║")
+    print("║ Leite em pó: 5 g                            ║")
+    print("║ Água: 50 mL                                 ║")
+    print("║ Preço: R$ 2,75                              ║")
+    print("║                                             ║")
+    print("║ Café com Leite (M)                          ║")
+    print("║ Café solúvel: 1,50 g                        ║")
+    print("║ Leite em pó: 10 g                           ║")
+    print("║ Água: 100 mL                                ║")
+    print("║ Preço: R$ 3,85                              ║")
+    print("║                                             ║")
+    print("║ Café com Leite (G)                          ║")
+    print("║ Café solúvel: 2,25 g                        ║")
+    print("║ Leite em pó: 15 g                           ║")
+    print("║ Água: 150 mL                                ║")
+    print("║ Preço: R$ 4,40                              ║")
+    print("║                                             ║")
+    print("║     <-- Voltar (1) (0) (2) Avançar -->      ║")
+    print("║                    Sair                     ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def infLeiteComCafe():
+    '''
+    Função que exibe as informações do leite com café
+
+    Esta função imprime as informações do leite com café nos tamanhos (P), (M) e (G)
+    '''
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅ Leite com Café ┅┅┅┅┅┅┅┅┅ ★    ║")
+    print("║                                             ║")
+    print("║ Leite com Café (P)                          ║")
+    print("║ Café solúvel: 0,75 g                        ║")
+    print("║ Leite em pó: 10 g                           ║")
+    print("║ Água: 50 mL                                 ║")
+    print("║ Preço: R$ 3,00                              ║")
+    print("║                                             ║")
+    print("║ Leite com Café (M)                          ║")
+    print("║ Café solúvel: 1,50 g                        ║")
+    print("║ Leite em pó: 20 g                           ║")
+    print("║ Água: 100 mL                                ║")
+    print("║ Preço: R$ 4,20                              ║")
+    print("║                                             ║")
+    print("║ Leite com Café (G)                          ║")
+    print("║ Café solúvel: 2,25 g                        ║")
+    print("║ Leite em pó: 30 g                           ║")
+    print("║ Água: 150 mL                                ║")
+    print("║ Preço: R$ 4,80                              ║")
+    print("║                                             ║")
+    print("║     <-- Voltar (1) (0) (2) Avançar -->      ║")
+    print("║                    Sair                     ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def infCappuccino():
+    '''
+    Função que exibe as informações do cappuccino
+
+    Esta função imprime as informações do cappuccino nos tamanhos (P), (M) e (G)
+    '''
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅ Cappuccino ┅┅┅┅┅┅┅┅┅┅┅ ★    ║")
+    print("║                                             ║")
+    print("║ Cappuccino (P)                              ║")
+    print("║ Café solúvel: 2 g                           ║")
+    print("║ Leite em pó: 10 g                           ║")
+    print("║ Chocolate em pó: 2,50 g                     ║")
+    print("║ Canela em pó: 0,15 g                        ║")
+    print("║ Água: 50 mL                                 ║")
+    print("║ Preço: R$ 4,00                              ║")
+    print("║                                             ║")
+    print("║ Cappuccino (M)                              ║")
+    print("║ Café solúvel: 4 g                           ║")
+    print("║ Leite em pó: 20 g                           ║")
+    print("║ Chocolate em pó: 5 g                        ║")
+    print("║ Canela em pó: 0,30 g                        ║")
+    print("║ Água: 100 mL                                ║")
+    print("║ Preço: R$ 5,60                              ║")
+    print("║                                             ║")
+    print("║ Cappuccino (G)                              ║")
+    print("║ Café solúvel: 6 g                           ║")
+    print("║ Leite em pó: 30 g                           ║")
+    print("║ Chocolate em pó: 7,50 g                     ║")
+    print("║ Canela em pó: 0,45 g                        ║")
+    print("║ Água: 150 mL                                ║")
+    print("║ Preço: R$ 6,40                              ║")
+    print("║                                             ║")
+    print("║     <-- Voltar (1) (0) (2) Avançar -->      ║")
+    print("║                    Sair                     ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def infMacchiato():
+    '''
+    Função que exibe as informações do macchiato
+
+    Esta função imprime as informações do macchiato nos tamanhos (P), (M) e (G)
+    '''
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅ Macchiato ┅┅┅┅┅┅┅┅┅┅┅┅ ★   ║")
+    print("║                                             ║")
+    print("║ Macchiato (P)                               ║")
+    print("║ Café solúvel: 3 g                           ║")
+    print("║ Leite em pó: 7 g                            ║")
+    print("║ Água: 50 mL                                 ║")
+    print("║ Preço: R$ 4,50                              ║")
+    print("║                                             ║")
+    print("║ Macchiato (M)                               ║")
+    print("║ Café solúvel: 6 g                           ║")
+    print("║ Leite em pó: 14 g                           ║")
+    print("║ Água: 100 mL                                ║")
+    print("║ Preço: R$ 6,30                              ║")
+    print("║                                             ║")
+    print("║ Macchiato (G)                               ║")
+    print("║ Café solúvel: 9 g                           ║")
+    print("║ Leite em pó: 21 g                           ║")
+    print("║ Água: 150 mL                                ║")
+    print("║ Preço: R$ 7,20                              ║")
+    print("║                                             ║")
+    print("║     <-- Voltar (1) (0) (2) Avançar -->      ║")
+    print("║                    Sair                     ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def infMocha():
+    '''
+    Função que exibe as informações do mocha
+
+    Esta função imprime as informações do mocha nos tamanhos (P), (M) e (G)
+    '''
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅┅┅ Mocha ┅┅┅┅┅┅┅┅┅┅┅┅┅┅ ★   ║")
+    print("║                                             ║")
+    print("║ Mocha (P)                                   ║")
+    print("║ Café solúvel: 1 g                           ║")
+    print("║ Leite em pó: 5 g                            ║")
+    print("║ Chocolate em pó: 5 g                        ║")
+    print("║ Água: 50 mL                                 ║")
+    print("║ Preço: R$ 4,00                              ║")
+    print("║                                             ║")
+    print("║ Mocha (M)                                   ║")
+    print("║ Café solúvel: 2 g                           ║")
+    print("║ Leite em pó: 10 g                           ║")
+    print("║ Chocolate em pó: 10 g                       ║")
+    print("║ Água: 100 mL                                ║")
+    print("║ Preço: R$ 5,60                              ║")
+    print("║                                             ║")
+    print("║ Mocha (G)                                   ║")
+    print("║ Café solúvel: 3 g                           ║")
+    print("║ Leite em pó: 15 g                           ║")
+    print("║ Chocolate em pó: 15 g                       ║")
+    print("║ Água: 150 mL                                ║")
+    print("║ Preço: R$ 6,40                              ║")
+    print("║                                             ║")
+    print("║     <-- Voltar (1) (0) (2) Avançar -->      ║")
+    print("║                    Sair                     ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def infChocoQuente():
+    '''
+    Função que exibe as informações do chocolate quente
+
+    Esta função imprime as informações do chocolate quente nos tamanhos (P), (M) e (G)
+    '''
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅ Chocolate Quente ┅┅┅┅┅┅┅┅ ★    ║")
+    print("║                                             ║")
+    print("║ Chocolate Quente (P)                        ║")
+    print("║ Leite em pó: 8 g                            ║")
+    print("║ Chocolate em pó: 5 g                        ║")
+    print("║ Água: 50 mL                                 ║")
+    print("║ Preço: R$ 3,75                              ║")
+    print("║                                             ║")
+    print("║ Chocolate Quente (M)                        ║")
+    print("║ Leite em pó: 16 g                           ║")
+    print("║ Chocolate em pó: 10 g                       ║")
+    print("║ Água: 100 mL                                ║")
+    print("║ Preço:  R$ 5,25                             ║")
+    print("║                                             ║")
+    print("║ Chocolate Quente (G)                        ║")
+    print("║ Leite em pó: 24 g                           ║")
+    print("║ Chocolate em pó: 15 g                       ║")
+    print("║ Água: 150 mL                                ║")
+    print("║ Preço: R$ 6,00                              ║")
+    print("║                                             ║")
+    print("║     <-- Voltar (1) (0) (2) Avançar -->      ║")
+    print("║                    Sair                     ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
+def telaInfProd():
+    cont = 1
+    while True:
+        match cont:
+            case 1:
+                infEspresso()
+            case 2:
+                infCafePreto()
+            case 3:
+                infLatte()
+            case 4:
+                infCafeComLeite()
+            case 5:
+                infLeiteComCafe()
+            case 6:
+                infCappuccino()
+            case 7:
+                infMacchiato()
+            case 8:
+                infMocha()
+            case 9:
+                infChocoQuente()
+        print("Deseja avaçar, voltar ou sair? ", end="")
+        scroll = digitarIntPositivo()
+        if scroll == 1:
+            cont = cont - 1
+        elif scroll == 2:
+            cont = cont + 1
+        elif scroll == 0:
+            break
+        else:
+            print("Parâmetro inválido!")
+            time.sleep(1)
+        if cont == 0:
+            cont = 9
+        if cont == 10:
+            cont = 1
+                
+    
+
 def somarLista(a, b):
     '''
     Função que soma duas listas
@@ -57,22 +803,13 @@ def digitarIntPositivo():
     except:
         print("Parâmetro inválido!")
 
-def prepararBebida(prodCliente):
-    '''
-    Função que prepara a bebida do cliente
+def verQuantNum(num):
+    if num // 10 < 1:
+        return 1
+    else:
+        return 1 + verQuantNum(num // 10)
 
-    Esta função exibe uma mensagem que a bebida do cliente que está sendo preparada e outra que a bebida está pronta
-    '''
-    prodCliente[4] = prodCliente[4] + 1
-    print("Sua bebida está sendo preparada")
-    for i in range(3):
-        time.sleep(1)
-        print(".")
-    time.sleep(1)
-    print(f"Seu {prodCliente[1]} está pronto!")
-    print()
-
-def somarDinheiro(listaVal, listaDinCliente):
+def somarDinheiro(din, listaVal, listaDinCliente):
     '''
     Função que recebe dinheiro do cliente
 
@@ -84,6 +821,7 @@ def somarDinheiro(listaVal, listaDinCliente):
         listaDinCliente (lista): Lista que armazenará a quantidade de dinheiro do cliente
     '''
     for i in range(12):
+        telaDinCliente(din)
         while True:
             if i <= 5:
                 print(f"Digite a quantidade de notas de R$ {listaVal[i]}: ",end="")
@@ -93,6 +831,7 @@ def somarDinheiro(listaVal, listaDinCliente):
             if val != None:
                 if val >= 0:
                     listaDinCliente[i] = val
+                    din = din + listaVal[i] * val
                     break
     print()
 
@@ -176,39 +915,39 @@ def darTroco(troco, listaVal, listaCaixa):
             troco = round(troco - listaVal[i], 2)
             listaCaixa[i] = listaCaixa[i] - 1
             time.sleep(0.1)
+    time.sleep(3)
 
 def verificaTam():
     while True:
-        tam = input("Digite o tamanho da sua bebida P / M / G: ")
-        if tam == "P" or tam == "p":
+        tam = str(input("Qual o tamanho da sua bebida? "))
+        if tam == "P" or tam == "p" or tam == "1" or tam == "50":
             return 1
-        elif tam == "M" or tam == "m":
+        elif tam == "M" or tam == "m" or tam == "2" or tam == "100":
             return 1.4
-        elif tam == "G" or tam == "g":
+        elif tam == "G" or tam == "g" or tam == "3" or tam == "150":
             return 1.6
-        elif tam == 0 or tam == "0":
+        elif tam == "0":
             return 0
         else:
             print("Parámetro inválido!")
 
 def verificaDesc():
     while True:
-        desc = input("Gostaria da sua bebida descafeinada? S / N: ")
-        if desc == "S" or desc == "s":
+        desc = str(input("Gostaria da sua bebida descafeinada? "))
+        if desc == "S" or desc == "s" or desc == "1" or desc == "D" or desc == "d":
             return 1
-        elif desc == "N" or desc == "n":
+        elif desc == "N" or desc == "n" or desc == "2" or desc == "C" or desc == "c":
             return 0
-        elif desc == 0 or desc == "0":
+        elif desc == "0":
             return 2
         else:
             print("Parâmetro inválido")
 
 def verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
-    #print("            ╔═════════════════════╗")
-    #print("        ╔═══╣     BEM-VINDO À     ║")
-    #print("        ╚═══╣   NOME DA EMPRESA   ║")
-    #print("            ╚══╦═══════════════╦══╝")
-    print("╔══════════════╩═══════════════╩══════════════╗")
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅ Escolha uma das bebidas ┅┅┅┅┅ ★   ║")
     for i in range(len(listaPosicao)):
         match listaPosicao[i]:
             case 1:
@@ -259,6 +998,7 @@ def verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, pro
             print(" Indisponível ║")
     print("║ 0. Voltar                                   ║")
     print("╚═════════════════════════════════════════════╝")
+    print()
 
 def escolheProd(listaPosicao, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
     print("Digite o número da sua bebida: ", end="")
@@ -291,42 +1031,45 @@ def escolheProd(listaPosicao, prodEspresso, prodCafePreto, prodLatte, prodCafeCo
 def compraProd(tam, desc, prodCliente, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela):
     if desc == 1:
         if tam == 1:
-            cafeSolDesc = cafeSolDesc - prodCliente[5]
+            cafeSolDesc = cafeSolDesc - prodCliente[4]
         elif tam == 1.4:
-            cafeSolDesc = cafeSolDesc - prodCliente[5] * 2
+            cafeSolDesc = cafeSolDesc - prodCliente[4] * 2
         else:
-            cafeSolDesc = cafeSolDesc - prodCliente[5] * 3
+            cafeSolDesc = cafeSolDesc - prodCliente[4] * 3
     else:
         if tam == 1:
-            cafeSol = cafeSol - prodCliente[5]
+            cafeSol = cafeSol - prodCliente[4]
         elif tam == 1.4:
-            cafeSol = cafeSol - prodCliente[5] * 2
+            cafeSol = cafeSol - prodCliente[4] * 2
         else:
-            cafeSol = cafeSol - prodCliente[5] * 3
+            cafeSol = cafeSol - prodCliente[4] * 3
     if tam == 1:
         agua = agua - 50
-        leitePo = leitePo - prodCliente[6]
-        chocoPo = chocoPo - prodCliente[7]
-        canela = canela - prodCliente[8]
+        leitePo = leitePo - prodCliente[5]
+        chocoPo = chocoPo - prodCliente[6]
+        canela = canela - prodCliente[7]
     elif tam == 1.4:
         agua = agua - 100
-        leitePo = leitePo - prodCliente[6] * 2
-        chocoPo = chocoPo - prodCliente[7] * 2
-        canela = canela - prodCliente[8] * 2
+        leitePo = leitePo - prodCliente[5] * 2
+        chocoPo = chocoPo - prodCliente[6] * 2
+        canela = canela - prodCliente[7] * 2
     else:
         agua = agua - 150
-        leitePo = leitePo - prodCliente[6] * 3
-        chocoPo = chocoPo - prodCliente[7] * 3
-        canela = canela - prodCliente[8] * 3
+        leitePo = leitePo - prodCliente[5] * 3
+        chocoPo = chocoPo - prodCliente[6] * 3
+        canela = canela - prodCliente[7] * 3
     return agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela 
 
 def vendaDoProduto(din, tam, desc, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodCliente, listaCaixa, listaDinCliente):
     if tam == 1:
         copoP = copoP - 1
+        prodCliente[8] = prodCliente[8] + 1
     elif tam == 1.4:
         copoM = copoM - 1
+        prodCliente[9] = prodCliente[9] + 1
     else:
         copoG = copoG - 1
+        prodCliente[10] = prodCliente[10] + 1
     din = din - prodCliente[2] * tam
     somarLista(listaCaixa, listaDinCliente)
     listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -354,155 +1097,172 @@ def verificaStatus(tam, desc, statusProd, cafeSol, cafeSolDesc, leitePo, chocoPo
         mult = 3
     prodEspresso[3], prodCafePreto[3], prodLatte[3], prodCafeComLeite[3], prodLeiteComCafe[3], prodCappuccino[3], prodMacchiato[3], prodMocha[3], prodChocoQuente[3] = 1, 1, 1, 1, 1, 1, 1, 1, 1
     if desc == 1:
-        if prodEspresso[5] * mult > cafeSolDesc:
+        if prodEspresso[4] * mult > cafeSolDesc:
             prodEspresso[3] = 0
-        if prodCafePreto[5] * mult > cafeSolDesc:
+        if prodCafePreto[4] * mult > cafeSolDesc:
             prodCafePreto[3] = 0
-        if prodLatte[5] * mult > cafeSolDesc or prodLatte[6] * mult > leitePo:
+        if prodLatte[4] * mult > cafeSolDesc or prodLatte[5] * mult > leitePo:
             prodLatte[3] = 0
-        if prodCafeComLeite[5] * mult > cafeSolDesc or prodCafeComLeite[6] * mult > leitePo:
+        if prodCafeComLeite[4] * mult > cafeSolDesc or prodCafeComLeite[5] * mult > leitePo:
             prodCafeComLeite[3] = 0
-        if prodLeiteComCafe[5] * mult > cafeSolDesc or prodLeiteComCafe[6] * mult > leitePo:
+        if prodLeiteComCafe[4] * mult > cafeSolDesc or prodLeiteComCafe[5] * mult > leitePo:
             prodLeiteComCafe[3] = 0
-        if prodCappuccino[5] * mult > cafeSolDesc or prodCappuccino[6] * mult > leitePo or prodCappuccino[7] * mult > chocoPo or prodCappuccino[8] * mult > canela:
+        if prodCappuccino[4] * mult > cafeSolDesc or prodCappuccino[5] * mult > leitePo or prodCappuccino[6] * mult > chocoPo or prodCappuccino[7] * mult > canela:
             prodCappuccino[3] = 0
-        if prodMacchiato[5] * mult > cafeSolDesc or prodMacchiato[6] * mult > leitePo:
+        if prodMacchiato[4] * mult > cafeSolDesc or prodMacchiato[5] * mult > leitePo:
             prodMacchiato[3] = 0
-        if prodMocha[5] * mult > cafeSolDesc or prodMocha[6] * mult > leitePo or prodMocha[7] * mult > chocoPo:
+        if prodMocha[4] * mult > cafeSolDesc or prodMocha[5] * mult > leitePo or prodMocha[6] * mult > chocoPo:
             prodMocha[3] = 0
-        if prodChocoQuente[5] * mult > cafeSolDesc or prodChocoQuente[6] * mult > leitePo or prodChocoQuente[7] * mult > chocoPo:
+        if prodChocoQuente[4] * mult > cafeSolDesc or prodChocoQuente[5] * mult > leitePo or prodChocoQuente[6] * mult > chocoPo:
             prodChocoQuente[3] = 0
     else:
-        if prodEspresso[5] * mult > cafeSol:
+        if prodEspresso[4] * mult > cafeSol:
             prodEspresso[3] = 0
-        if prodCafePreto[5] * mult > cafeSol:
+        if prodCafePreto[4] * mult > cafeSol:
             prodCafePreto[3] = 0
-        if prodLatte[5] * mult > cafeSol or prodLatte[6] * mult > leitePo:
+        if prodLatte[4] * mult > cafeSol or prodLatte[5] * mult > leitePo:
             prodLatte[3] = 0
-        if prodCafeComLeite[5] * mult > cafeSol or prodCafeComLeite[6] * mult > leitePo:
+        if prodCafeComLeite[4] * mult > cafeSol or prodCafeComLeite[5] * mult > leitePo:
             prodCafeComLeite[3] = 0
-        if prodLeiteComCafe[5] * mult > cafeSol or prodLeiteComCafe[6] * mult > leitePo:
+        if prodLeiteComCafe[4] * mult > cafeSol or prodLeiteComCafe[5] * mult > leitePo:
             prodLeiteComCafe[3] = 0
-        if prodCappuccino[5] * mult > cafeSol or prodCappuccino[6] * mult > leitePo or prodCappuccino[7] * mult > chocoPo or prodCappuccino[8] * mult > canela:
+        if prodCappuccino[4] * mult > cafeSol or prodCappuccino[5] * mult > leitePo or prodCappuccino[6] * mult > chocoPo or prodCappuccino[7] * mult > canela:
             prodCappuccino[3] = 0
-        if prodMacchiato[5] * mult > cafeSol or prodMacchiato[6] * mult > leitePo:
+        if prodMacchiato[4] * mult > cafeSol or prodMacchiato[5] * mult > leitePo:
             prodMacchiato[3] = 0
-        if prodMocha[5] * mult > cafeSol or prodMocha[6] * mult > leitePo or prodMocha[7] * mult > chocoPo:
+        if prodMocha[4] * mult > cafeSol or prodMocha[5] * mult > leitePo or prodMocha[6] * mult > chocoPo:
             prodMocha[3] = 0
-        if prodChocoQuente[5] * mult > cafeSol or prodChocoQuente[6] * mult > leitePo or prodChocoQuente[7] * mult > chocoPo:
+        if prodChocoQuente[4] * mult > cafeSol or prodChocoQuente[5] * mult > leitePo or prodChocoQuente[6] * mult > chocoPo:
             prodChocoQuente[3] = 0
-    statusProd[0], statusProd[1], statusProd[2], statusProd[3], statusProd[4], statusProd[5], statusProd[6], statusProd[7], statusProd[8], = prodEspresso[3], prodCafePreto[3], prodLatte[3], prodCafeComLeite[3], prodLeiteComCafe[3], prodCappuccino[3], prodMacchiato[3], prodMocha[3], prodChocoQuente[3]
-            
+    statusProd[0], statusProd[1], statusProd[2], statusProd[3], statusProd[4], statusProd[5], statusProd[6], statusProd[7], statusProd[8] = prodEspresso[3], prodCafePreto[3], prodLatte[3], prodCafeComLeite[3], prodLeiteComCafe[3], prodCappuccino[3], prodMacchiato[3], prodMocha[3], prodChocoQuente[3]
+
+def calcFaturamento(prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
+    fat = 0
+    fat = fat + prodEspresso[8] * prodEspresso[2] + prodEspresso[9] * prodEspresso[2] * 1.4 + prodEspresso[10] * prodEspresso[2] * 1.6
+    fat = fat + prodCafePreto[8] * prodCafePreto[2] + prodCafePreto[9] * prodCafePreto[2] * 1.4 + prodCafePreto[10] * prodCafePreto[2] * 1.6
+    fat = fat + prodLatte[8] * prodLatte[2] + prodLatte[9] * prodLatte[2] * 1.4 + prodLatte[10] * prodLatte[2] * 1.6
+    fat = fat + prodCafeComLeite[8] * prodCafeComLeite[2] + prodCafeComLeite[9] * prodCafeComLeite[2] * 1.4 + prodCafeComLeite[10] * prodCafeComLeite[2] * 1.6
+    fat = fat + prodLeiteComCafe[8] * prodLeiteComCafe[2] + prodLeiteComCafe[9] * prodLeiteComCafe[2] * 1.4 + prodLeiteComCafe[10] * prodLeiteComCafe[2] * 1.6
+    fat = fat + prodCappuccino[8] * prodCappuccino[2] + prodCappuccino[9] * prodCappuccino[2] * 1.4 + prodCappuccino[10] * prodCappuccino[2] * 1.6
+    fat = fat + prodMacchiato[8] * prodMacchiato[2] + prodMacchiato[9] * prodMacchiato[2] * 1.4 + prodMacchiato[10] * prodMacchiato[2] * 1.6
+    fat = fat + prodMocha[8] * prodMocha[2] + prodMocha[9] * prodMocha[2] * 1.4 + prodMocha[10] * prodMocha[2] * 1.6
+    fat = fat + prodChocoQuente[8] * prodChocoQuente[2] + prodChocoQuente[9] * prodChocoQuente[2] * 1.4 + prodChocoQuente[10] * prodChocoQuente[2] * 1.6
+    return round(fat, 2)
+  
 def venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaVal, listaCaixa, listaDinCliente, listaPosicao, statusProd):
     while True:
         if agua < 50:
-            print("A máquina está sem água para bebidas")
-            break
-        else:
-            # def venda(muitasCoisas):
-            # def telaTamBeb():
+            telaMsgSemAgua()
+            time.sleep(3)
+            if din > 0:
+                print("Agradecemos pela preferência!")
+                darTroco(din, listaVal, listaCaixa)
+            somarLista(listaCaixa, listaDinCliente)
+            listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            return agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaCaixa, listaDinCliente
+        #else:
+        res = ""
+        while True:
+            telaTamBeb()
+            if res == "S" or res == "s" or res == "1":
+                break
+            tam = verificaTam()
+            if tam == 0:
+                if din > 0:
+                    print("Agradecemos pela preferência!")
+                    darTroco(din, listaVal, listaCaixa)
+                somarLista(listaCaixa, listaDinCliente)
+                listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                return agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaCaixa, listaDinCliente
+            if tam == 1 and copoP <= 0:
+                telaMsgSemCopoP()
+                time.sleep(3)
+                break
+            if tam == 1.4:
+                if copoM <= 0:
+                    telaMsgSemCopoM()
+                    time.sleep(3)
+                    break
+                if agua < 100:
+                    telaMsgSemAguaM()
+                    time.sleep(3)
+                    break
+            if tam == 1.6:
+                if copoG <= 0:
+                    telaMsgSemCopoG()
+                    time.sleep(3)
+                    break
+                if agua < 300:
+                    telaMsgSemAguaG()
+                    time.sleep(3)
+                    break
             while True:
-                res = ""
-                tam = verificaTam()
-                if tam == 0:
-                    # funçãoVoltar()
-                    print("Blá")
+                telaDescCafe()
+                if res == "S" or res == "s" or res == "1":
                     break
-                if tam == 1 and copoP < 1:
-                    # funçãoVoltar()
-                    print("Infelizmente a máquina está sem copos para bebidas pequenas (50ml)")
+                desc = verificaDesc()
+                if desc == 2:
                     break
-                elif tam == 1.4 and copoM < 1:
-                    # funçãoVoltar()
-                    print("Infelizmente a máquina está sem copos para bebidas médias (100ml)")
-                    break
-                elif tam == 1.6 and copoG < 1:
-                    # funçãoVoltar()
-                    print("Infelizmente a máquina está sem copos para bebidas grandes (150ml)")
-                    break
-                else:
-                    while True:
-                        if res == "S" or res == "s":
+                while True:
+                    verificaStatus(tam, desc, statusProd, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
+                    organizaPosicao(listaPosicao, statusProd)
+                    verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
+                    prodCliente = escolheProd(listaPosicao, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
+                    if prodCliente == 0:
+                        break
+                    while prodCliente == 0 or prodCliente[3] == 0:
+                        if prodCliente == 0:
                             break
-                        desc = verificaDesc()
-                        if desc == 2:
-                            # funçãoVoltar()
-                            print("Blá")
+                        telaProdIndisp(prodCliente)
+                        verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
+                        prodCliente = escolheProd(listaPosicao, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
+                    if prodCliente == 0:
+                        break
+                    telaConfimacao(prodCliente)
+                    res = str(input(f"Deseja preparar {prodCliente[1]}? S/N: "))
+                    while True:
+                        if res == "S" or res == "s" or res == "1":
+                            break
+                        elif res == "N" or res == "n" or res == "0":
                             break
                         else:
+                            print("Parâmetro inválido!")
+                            res = str(input(f"Deseja preparar {prodCliente[1]}? S/N: "))
+                    if res == "S" or res == "s" or res == "1":
+                        if din < prodCliente[2] * tam:
+                            print("Insira o dinheiro na máquina")
+                            somarDinheiro(din, listaVal, listaDinCliente)
+                            din = din + dinCliente(listaVal, listaDinCliente)
+                        temTroco = verificarCaixa(din - prodCliente[2] * tam, listaVal, listaCaixa, listaDinCliente)
+                        if din >= prodCliente[2] * tam and temTroco == True:
+                            din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, listaDinCliente = vendaDoProduto(din, tam, desc, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodCliente, listaCaixa, listaDinCliente)
+                            telaOutraBeb()
+                            res = str(input(f"Restam R$ {din:.2f}! Deseja comprar outra bebida? ".replace(".",",")))
                             while True:
-                                verificaStatus(tam, desc, statusProd, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
-                                organizaPosicao(listaPosicao, statusProd)
-                                verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
-                                prodCliente = escolheProd(listaPosicao, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
-                                print(prodCliente)
-                                if prodCliente == 0:
-                                    # funçãoVoltar()
-                                    print("Blá")
+                                if res == "S" or res == "s" or res == "1":
+                                    break
+                                elif res == "N" or res == "n" or res == "0":
                                     break
                                 else:
-                                    #while True:
-                                        while prodCliente == 0 or prodCliente[3] == 0:
-                                            if prodCliente == 0:
-                                                # funçãoVoltar()
-                                                print("Blá")
-                                                break
-                                            print(f"Infelizmente {prodCliente[1]} está indisponível!")
-                                            print("Escolha uma nova bebida.")
-                                            prodCliente = escolheProd(listaPosicao, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
-                                        if prodCliente == 0:
-                                            break
-                                        resp = input(f"Deseja preparar {prodCliente[1]}? S / N: ")
-                                        while True:
-                                            if resp == "S" or resp == "s":
-                                                break
-                                            elif resp == "N" or resp == "n" or resp == 0:
-                                                break
-                                            else:
-                                                print("Parâmetro inválido!")
-                                                resp = input(f"Deseja preparar {prodCliente[1]}? S / N: ")
-                                        if resp == "S" or resp == "s":
-                                            if din < prodCliente[2] * tam:
-                                                print("Insira o dinheiro na máquina")
-                                                somarDinheiro(listaVal, listaDinCliente)
-                                                din = din + dinCliente(listaVal, listaDinCliente)
-                                            temTroco = verificarCaixa(din - prodCliente[2] * tam, listaVal, listaCaixa, listaDinCliente)
-                                            if din >= prodCliente[2] * tam and temTroco == True:
-                                                din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, listaDinCliente = vendaDoProduto(din, tam, desc, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodCliente, listaCaixa, listaDinCliente)
+                                    print("Parâmetro inválido!")
+                                    res = str(input(f"Restam R$ {din:.2f}! Deseja comprar outra bebida? ".replace(".",",")))
+                            if res == "S" or res == "s" or res == "1":
+                                break
+                        elif din < prodCliente[2] * tam:
+                            print("Dinheiro insuficiente!")
+                            time.sleep(1)
+                        elif temTroco == False:
+                            print("Infelizmente a máquina está sem troco para a quantia fornecida.")
+                            time.sleep(1)
+                        print("Agradecemos pela preferência!")
+                        somarLista(listaCaixa, listaDinCliente)
+                        listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                        if din <= 0:
+                            print("Você não possui troco.")
+                        else:
+                            darTroco(din, listaVal, listaCaixa)
+                        return agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaCaixa, listaDinCliente
 
-                                                res = input(f"Restam R$ {din:.2f}. Deseja comprar outra bebida? S/N: ")
-                                                if res == "S" or res == "s":
-                                                    break
-                                                elif din > 0:
-                                                    darTroco(din, listaVal, listaCaixa)
-                                                    print()
-                                                    print("Agradecemos pela preferencia!")
-                                                    time.sleep(3)
-                                                    return agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaCaixa, listaDinCliente
-                                                else:
-                                                    print("Você não possui troco")
-                                                    print("Volte sempre!")
-                                            elif din < prodCliente[2] * tam:
-                                                print("Dinheiro insuficiente!")
-                                                time.sleep(1)
-                                                if din > 0:
-                                                    somarLista(listaCaixa, listaDinCliente)
-                                                    listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                                                    darTroco(din, listaVal, listaCaixa)
-                                                    return agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaCaixa, listaDinCliente
-                                                else:
-                                                    # Verificar aqui
-                                                    print("Você não possui troco")
-                                                    print("Volte sempre!")
-                                            elif temTroco == False:
-                                                print("Infelizmente a máquina está sem troco para a quantia fornecida.")
-                                                time.sleep(1)
-                                                somarLista(listaCaixa, listaDinCliente)
-                                                listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                                                darTroco(din, listaVal, listaCaixa)
-                                                return agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaCaixa, listaDinCliente
-                                            
-# Verificar quando retorna os valores, 
 
 def main():
     limpaTela()
@@ -514,19 +1274,20 @@ def main():
     statusProd = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     # Produtos
-    # ProdLista = [ID, nome, preco, status, vendas, cafeSoluvel, leitePo, chocoPo, canela]
-    prodEspresso = [1, "Café Espresso", 3.5, 1, 0, 2, 0, 0, 0]
-    prodCafePreto = [2, "Café Preto", 2.5, 1, 0, 0.75, 0, 0, 0]
-    prodLatte = [3, "Latte", 3.5, 1, 0, 0.75, 12, 0, 0]
-    prodCafeComLeite = [4, "Café com Leite", 2.75, 1, 0, 0.75, 5, 0, 0]
-    prodLeiteComCafe = [5, "Leite com Café", 3, 1, 0, 0.75, 10, 0, 0]
-    prodCappuccino = [6, "Cappuccino", 4, 1, 0, 2, 10, 2.5, 0.15]
-    prodMacchiato = [7, "Macchiato", 4.5, 1, 0, 3, 7, 0, 0]
-    prodMocha = [8, "Mocha", 4, 1, 0, 1, 5, 5, 0]
-    prodChocoQuente = [9, "Chocolate Quente", 3.75, 1, 0, 0, 8, 5, 0]
+    # ProdLista = [ID, nome, preco, status, cafeSoluvel, leitePo, chocoPo, canela, vendas P, vendas M, vendas G]
+    prodEspresso = [1, "Café Espresso", 3.5, 1, 2, 0, 0, 0, 0, 0, 0]
+    prodCafePreto = [2, "Café Preto", 2.5, 1, 0.75, 0, 0, 0, 0, 0, 0]
+    prodLatte = [3, "Latte", 3.5, 1, 0.75, 12, 0, 0, 0, 0, 0]
+    prodCafeComLeite = [4, "Café com Leite", 2.75, 1, 0.75, 5, 0, 0, 0, 0, 0]
+    prodLeiteComCafe = [5, "Leite com Café", 3, 1, 0.75, 10, 0, 0, 0, 0, 0]
+    prodCappuccino = [6, "Cappuccino", 4, 1, 2, 10, 2.5, 0.15, 0, 0, 0]
+    prodMacchiato = [7, "Macchiato", 4.5, 1, 3, 7, 0, 0, 0, 0, 0]
+    prodMocha = [8, "Mocha", 4, 1, 1, 5, 5, 0, 0, 0, 0]
+    prodChocoQuente = [9, "Chocolate Quente", 3.75, 1, 0, 8, 5, 0, 0, 0, 0]
 
+    faturamento = 0
     din = 0
-    agua = 1000
+    agua = 300
     cafeSol = 1000
     cafeSolDesc = 1000
     leitePo = 1000
@@ -535,43 +1296,49 @@ def main():
     copoP = 100 # copo de 80ml
     copoM = 100 # copo de 130ml
     copoG = 100 # copo de 180ml
-    while True:
-        agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaCaixa, listaDinCliente  = venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaVal, listaCaixa, listaDinCliente, listaPosicao, statusProd)
-        print()
-        print(f"Dinheiro: {din}")
-        print(f"Água: {agua}")
-        print(f"Café Solúvel: {cafeSol}")
-        print(f"Café Solúvel Descafeinado: {cafeSolDesc}")
-        print(f"Leite em Pó: {leitePo}")
-        print(f"Chocolate em Pó: {chocoPo}")
-        print(f"Copo (P) 50 ml:  {copoP}")
-        print(f"Copo (M) 100 ml: {copoM}")
-        print(f"Copo (G) 150 ml: {copoG}")
-        print(f"Espresso:       {prodEspresso}")
-        print(f"Café Preto:     {prodCafePreto}")
-        print(f"Latte:          {prodLatte}")
-        print(f"Café com Leite: {prodCafeComLeite}")
-        print(f"Leite com Café: {prodLeiteComCafe}")
-        print(f"Cappuccino:     {prodCappuccino}")
-        print(f"Macchiato:      {prodMacchiato}")
-        print(f"Mocha:          {prodMocha}")
-        print(f"ChocoQuente:    {prodChocoQuente}")
-        print(listaCaixa)
-        print(listaDinCliente)
-    
 
+    #telaQuemSomos()
+    #time.sleep(1000)
+
+    while True:
+        telaInicial()
+        menu = str(input("Escolha uma opção: "))
+        match menu:
+            case "1":
+                agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaCaixa, listaDinCliente = venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaVal, listaCaixa, listaDinCliente, listaPosicao, statusProd)
+            case "2":
+                while True:
+                    #if menu == "0":
+                        #break
+                    telaConfiguracoes()
+                    menuConf = str(input("Escolha uma opção: "))
+                    match menuConf:
+                        case "1":
+                            telaInfInternas(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
+                        case "2":
+                            telaInfProd()
+                        case "3":
+                            continue
+                        case "0":
+                            break
+                        case _:
+                            print("Parâmetro inválido! ")
+
+            case "3":
+                telaQuemSomos()
+            case "4":
+                telaFinalizar()
+                while True:
+                    sair = str(input("Deseja finalizar o programa? "))
+                    if sair == "S" or sair == "s" or sair == "1":
+                        telaPrefencia()                        
+                        telaInfInternas(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
+                        return None
+                    elif sair == "N" or sair == "n" or sair == "0":
+                        break
+                    else:
+                        print("Parâmetro inválido!")
+            case _:
+                print("Parâmetro inválido!")
+                time.sleep(1)
 main()
-    
-""" def infEspresso():
-    print("Café Espresso (P): R$ 3,50")
-    print("2g de café sóluvel")
-    print("50ml de água")
-    print()
-    print("Café Espresso (M): R$ 5,25")
-    print("4g de café sóluvel")
-    print("100ml de água")
-    print()
-    print("Café Espresso (G): R$ 5,95")
-    print("6g de café sóluvel")
-    print("150ml de água")
-    print() """
