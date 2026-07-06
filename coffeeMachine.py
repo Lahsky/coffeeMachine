@@ -312,29 +312,55 @@ def telaInfInternas(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP,
     print("║   ★ ┅┅┅┅┅┅ Informações Internas: ┅┅┅┅┅┅ ★   ║")
     print(f"║ Água: {agua} mL", end="")
     print(" " * (34 - verQuantNum(agua)), "║")
-    print(f"║ Café Solúvel: {cafeSol} g", end="")
-    print(" " * (27 - verQuantNum(cafeSol)), "║")
-    print(f"║ Café Solúvel Descafeinado: {cafeSolDesc} g", end="")
-    print(" " * (14 - verQuantNum(cafeSolDesc)), "║")
-    print(f"║ Leite em Pó: {leitePo} g", end="")
-    print(" " * (28 - verQuantNum(leitePo)), "║")
-    print(f"║ Chocolate em Pó: {chocoPo} g", end="")
-    print(" " * (24 - verQuantNum(chocoPo)), "║")
-    print(f"║ Canela: {canela} g", end="")
-    print(" " * (33 - verQuantNum(canela)), "║")
-    print(f"║ Copo (P) 80 ml: {copoP}", end="")
-    print(" " * (27 - verQuantNum(copoP)), "║")
-    print(f"║ Copo (M) 130 ml: {copoM}", end="")
-    print(" " * (26 - verQuantNum(copoM)), "║")
-    print(f"║ Copo (G) 180 ml: {copoG}", end="")
-    print(" " * (26 - verQuantNum(copoG)), "║")
+    print(f"║ Café Solúvel: {cafeSol:.2f} g".replace(".", ","), end="")
+    print(" " * (24 - verQuantNum(cafeSol)), "║")
+    print(f"║ Café Solúvel Descafeinado: {cafeSolDesc:.2f} g".replace(".", ","), end="")
+    print(" " * (11 - verQuantNum(cafeSolDesc)), "║")
+    print(f"║ Leite em Pó: {leitePo:.2f} g".replace(".", ","), end="")
+    print(" " * (25 - verQuantNum(leitePo)), "║")
+    print(f"║ Chocolate em Pó: {chocoPo:.2f} g".replace(".", ","), end="")
+    print(" " * (21 - verQuantNum(chocoPo)), "║")
+    print(f"║ Canela: {canela:.2f} g".replace(".", ","), end="")
+    print(" " * (30 - verQuantNum(canela)), "║")
+    print(f"║ Copo (P) 80 mL: {copoP} unidade(s)", end="")
+    print(" " * (16 - verQuantNum(copoP)), "║")
+    print(f"║ Copo (M) 130 mL: {copoM} unidade(s)", end="")
+    print(" " * (15 - verQuantNum(copoM)), "║")
+    print(f"║ Copo (G) 180 mL: {copoG} unidade(s)", end="")
+    print(" " * (15 - verQuantNum(copoG)), "║")
     print("║                                             ║")
     print(f"║ Faturamento: R$ {faturamento:.2f}".replace(".", ","),end="")
     print(" " * (24 - verQuantNum(faturamento)), "║")
     print("║                                             ║")
     print("╚═════════════════════════════════════════════╝")
     print()
-    input(" Pressione qualquer tecla para sair ")
+
+def telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG):
+    limpaTela()
+    xicaraG()
+    print("╔════════╩═══════════════════════════╩════════╗")
+    print("║   ★ ┅┅┅┅┅┅ Informações Internas: ┅┅┅┅┅┅ ★   ║")
+    print(f"║ 1. Água: {agua} mL", end="")
+    print(" " * (31 - verQuantNum(agua)), "║")
+    print(f"║ 2. Café Solúvel: {cafeSol:.2f} g".replace(".", ","), end="")
+    print(" " * (21 - verQuantNum(cafeSol)), "║")
+    print(f"║ 3. Café Solúvel Descafeinado: {cafeSolDesc:.2f} g".replace(".", ","), end="")
+    print(" " * (8 - verQuantNum(cafeSolDesc)), "║")
+    print(f"║ 4. Leite em Pó: {leitePo:.2f} g".replace(".", ","), end="")
+    print(" " * (22 - verQuantNum(leitePo)), "║")
+    print(f"║ 5. Chocolate em Pó: {chocoPo:.2f} g".replace(".", ","), end="")
+    print(" " * (18 - verQuantNum(chocoPo)), "║")
+    print(f"║ 6. Canela: {canela:.2f} g".replace(".", ","), end="")
+    print(" " * (27 - verQuantNum(canela)), "║")
+    print(f"║ 7. Copo (P) 80 mL: {copoP} unidade(s)", end="")
+    print(" " * (13 - verQuantNum(copoP)), "║")
+    print(f"║ 8. Copo (M) 130 mL: {copoM} unidade(s)", end="")
+    print(" " * (12 - verQuantNum(copoM)), "║")
+    print(f"║ 9. Copo (G) 180 mL: {copoG} unidade(s)", end="")
+    print(" " * (12 - verQuantNum(copoG)), "║")
+    print("║ 0. Voltar                                   ║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
 
 """ def telaQuemSomos():
     limpaTela()
@@ -749,6 +775,7 @@ def telaInfProd():
         elif scroll == 0:
             break
         else:
+            print()
             print("Parâmetro inválido!")
             time.sleep(1)
         if cont == 0:
@@ -799,9 +826,13 @@ def digitarIntPositivo():
         if val >= 0:
             return val
         else:
+            print()
             print("Parâmetro inválido!")
+            print()
     except:
-        print("Parâmetro inválido!")
+        print()
+        print("Parâmetro inválido")
+        print()
 
 def verQuantNum(num):
     if num // 10 < 1:
@@ -929,7 +960,9 @@ def verificaTam():
         elif tam == "0":
             return 0
         else:
+            print()
             print("Parámetro inválido!")
+            print()
 
 def verificaDesc():
     while True:
@@ -941,7 +974,9 @@ def verificaDesc():
         elif desc == "0":
             return 2
         else:
+            print()
             print("Parâmetro inválido")
+            print()
 
 def verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
     limpaTela()
@@ -1006,6 +1041,10 @@ def escolheProd(listaPosicao, prodEspresso, prodCafePreto, prodLatte, prodCafeCo
     while cod == None or cod < 0 or cod > 9:
         print("Digite o número da sua bebida: ", end="")
         cod = digitarIntPositivo()
+        if cod == None or cod < 0 or cod > 9:
+            print()
+            print("Parâmetro inválido!")
+            print()
     if cod == 0:
         return 0
     match listaPosicao[cod - 1]:
@@ -1027,6 +1066,10 @@ def escolheProd(listaPosicao, prodEspresso, prodCafePreto, prodLatte, prodCafeCo
             return prodMocha
         case 9:
             return prodChocoQuente
+        case _:
+            print()
+            print("Parâmetro inválido!")
+            print()
 
 def compraProd(tam, desc, prodCliente, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela):
     if desc == 1:
@@ -1148,7 +1191,83 @@ def calcFaturamento(prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, pr
     fat = fat + prodMocha[8] * prodMocha[2] + prodMocha[9] * prodMocha[2] * 1.4 + prodMocha[10] * prodMocha[2] * 1.6
     fat = fat + prodChocoQuente[8] * prodChocoQuente[2] + prodChocoQuente[9] * prodChocoQuente[2] * 1.4 + prodChocoQuente[10] * prodChocoQuente[2] * 1.6
     return round(fat, 2)
-  
+
+def reposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG):
+    while True:
+        telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
+
+        repor = str(input("Digite o número do item para a reposição: "))
+        print()
+        match repor:
+            case "1":
+                print("Digite a quantidade de água para adicionar (em mL): ", end="")
+                x = digitarIntPositivo()
+                agua += x
+                print()
+                print(f"{x}mL de água foram adicionados ao reservatório.")
+                time.sleep(1) 
+            case "2":
+                print("Digite a quantidade de café solúvel para adicionar (em g): ", end="")
+                x = digitarIntPositivo()
+                cafeSol += x
+                print()
+                print(f"{x}g de café solúvel foram adicionados ao reservatório.")
+                time.sleep(1)
+            case "3":
+                print("Digite a quantidade de café solúvel (descafeinado) para adicionar (em g): ", end="")
+                x = digitarIntPositivo()
+                cafeSolDesc += x
+                print()
+                print(f"{x}g de café solúvel descafeinado foram adicionados ao reservatório.")
+                time.sleep(1)
+            case "4":
+                print("Digite a quantidade de leite em pó para adicionar (em g): ", end="")
+                x = digitarIntPositivo()
+                leitePo += x
+                print()
+                print(f"{x}g de leite em pó foram adicionados ao reservatório.")
+                time.sleep(1)
+            case "5":
+                print("Digite a quantidade de chocolate em pó para adicionar (em g): ", end="")
+                x = digitarIntPositivo()
+                chocoPo += x
+                print()
+                print(f"{x}g de chocolate em pó foram adicionados ao reservatório.")
+                time.sleep(1)
+            case "6":
+                print("Digite a quantidade de canela para adicionar (em g): ", end="")
+                x = digitarIntPositivo()
+                canela += x
+                print()
+                print(f"{x}g de canela foram adicionados ao reservatório.")
+                time.sleep(1)
+            case "7":
+                print("Digite a quantidade de copos (tamanho P) para adicionar: ", end="")
+                x = digitarIntPositivo()
+                copoP += x
+                print()
+                print(f"{x}g de canela foram adicionados ao reservatório.")
+                time.sleep(1)
+            case "8":
+                print("Digite a quantidade de copos (tamanho M) para adicionar: ", end="")
+                x = digitarIntPositivo()
+                copoM += x
+                print()
+                print(f"{x}g de canela foram adicionados ao reservatório.")
+                time.sleep(1)
+            case "9":
+                print("Digite a quantidade de copos (tamanho G) para adicionar: ", end="")
+                x = digitarIntPositivo()
+                copoG += x
+                print()
+                print(f"{x}g de canela foram adicionados ao reservatório.")
+                time.sleep(1)
+            case "0":
+                return agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG
+            case _:
+                print("Parâmetro inválido!")
+                time.sleep(1)
+
 def venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaVal, listaCaixa, listaDinCliente, listaPosicao, statusProd):
     while True:
         if agua < 50:
@@ -1192,7 +1311,7 @@ def venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copo
                     telaMsgSemCopoG()
                     time.sleep(3)
                     break
-                if agua < 300:
+                if agua < 150:
                     telaMsgSemAguaG()
                     time.sleep(3)
                     break
@@ -1226,8 +1345,10 @@ def venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copo
                         elif res == "N" or res == "n" or res == "0":
                             break
                         else:
+                            print()
                             print("Parâmetro inválido!")
-                            res = str(input(f"Deseja preparar {prodCliente[1]}? S/N: "))
+                            print()
+                            res = str(input(f"Deseja preparar {prodCliente[1]}? "))
                     if res == "S" or res == "s" or res == "1":
                         if din < prodCliente[2] * tam:
                             print("Insira o dinheiro na máquina")
@@ -1244,7 +1365,9 @@ def venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copo
                                 elif res == "N" or res == "n" or res == "0":
                                     break
                                 else:
-                                    print("Parâmetro inválido!")
+                                    print()
+                                    print("Parâmetro inválido")
+                                    print()
                                     res = str(input(f"Restam R$ {din:.2f}! Deseja comprar outra bebida? ".replace(".",",")))
                             if res == "S" or res == "s" or res == "1":
                                 break
@@ -1254,6 +1377,7 @@ def venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copo
                         elif temTroco == False:
                             print("Infelizmente a máquina está sem troco para a quantia fornecida.")
                             time.sleep(1)
+                        telaPrefencia()
                         print("Agradecemos pela preferência!")
                         somarLista(listaCaixa, listaDinCliente)
                         listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -1308,37 +1432,42 @@ def main():
                 agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaCaixa, listaDinCliente = venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaVal, listaCaixa, listaDinCliente, listaPosicao, statusProd)
             case "2":
                 while True:
-                    #if menu == "0":
-                        #break
                     telaConfiguracoes()
                     menuConf = str(input("Escolha uma opção: "))
                     match menuConf:
                         case "1":
                             telaInfInternas(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
+                            input(" Pressione qualquer tecla para sair ")
                         case "2":
                             telaInfProd()
                         case "3":
-                            continue
+                            agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG = reposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
                         case "0":
                             break
                         case _:
+                            print()
                             print("Parâmetro inválido! ")
+                            time.sleep(1)
 
             case "3":
                 telaQuemSomos()
             case "4":
-                telaFinalizar()
                 while True:
+                    telaFinalizar()
                     sair = str(input("Deseja finalizar o programa? "))
                     if sair == "S" or sair == "s" or sair == "1":
                         telaPrefencia()                        
                         telaInfInternas(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
+                        input(" Pressione qualquer tecla para sair ")
                         return None
                     elif sair == "N" or sair == "n" or sair == "0":
                         break
                     else:
+                        print()
                         print("Parâmetro inválido!")
+                        time.sleep(1)
             case _:
+                print()
                 print("Parâmetro inválido!")
                 time.sleep(1)
 main()
