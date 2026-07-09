@@ -3,9 +3,9 @@ import time
 
 def limpaTela():
     '''
-    Função que limpa a tela do terminal
+    Função que limpa a tela do terminal.
 
-    Esta função verifica qual o sistema operacional usado e limpa a tela do terminal com base nessa informação
+    Esta função verifica qual o sistema operacional usado e limpa a tela do terminal com base nessa informação.
     '''
     if name == "nt":
         system("cls")
@@ -13,6 +13,11 @@ def limpaTela():
         system("clear")
 
 def xicaraG():
+    '''
+    Função que imprime uma xícara de café.
+
+    Está função imprime uma xícara de café com o nome da máquina de café.
+    '''
     print("              ഽ       ഽ       ഽ       ")
     print("               ഽ       ഽ       ഽ       ")
     print("              ഽ       ഽ       ഽ       ")
@@ -24,11 +29,17 @@ def xicaraG():
     print("  ╚╗   ║ ★                          ★  ║       ")
     print("   ╚═══║ ★                          ★  ║       ")
     print("       ╚═╦═══════════════════════════╦═╝        ")
+    print("     ╔═══╩═══════════════════════════╩═══╗")
 
 def telaMsgSemAgua():
+    '''
+    Função que avisa que está sem água para bebidas.
+
+    Esta função limpa a tela do terminal e imprime uma mensagem avisando que não tem mais água para bebidas.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║                                             ║")
     print("║         Infelizmente a máquina está         ║")
     print("║            sem água para bebidas            ║")
@@ -37,9 +48,14 @@ def telaMsgSemAgua():
     print()
 
 def telaMsgSemAguaM():
+    '''
+    Função que avisa que está sem água para bebidas médias.
+
+    Esta função limpa a tela do terminal e imprime uma mensagem avisando que não tem mais água para bebidas de tamanho médio.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║                                             ║")
     print("║         Infelizmente a máquina está         ║")
     print("║        sem água para bebidas médias         ║")
@@ -48,9 +64,14 @@ def telaMsgSemAguaM():
     print()
 
 def telaMsgSemAguaG():
+    '''
+    Função que avisa que está sem água para bebidas grandes.
+
+    Esta função limpa a tela do terminal e imprime uma mensagem avisando que não tem mais água para bebidas de tamanho grande.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║                                             ║")
     print("║         Infelizmente a máquina está         ║")
     print("║        sem água para bebidas grandes        ║")
@@ -59,9 +80,14 @@ def telaMsgSemAguaG():
     print()
 
 def telaMsgSemCopoP():
+    '''
+    Função que avisa que está sem copos para bebidas pequenas.
+
+    Esta função limpa a tela do terminal, imprime uma mensagem avisando que está sem copos pequenos para as bebidas pequenas.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║                                             ║")
     print("║         Infelizmente a máquina está         ║")
     print("║   sem copos para bebidas pequenas (50 mL)   ║")
@@ -70,9 +96,14 @@ def telaMsgSemCopoP():
     print()
 
 def telaMsgSemCopoM():
+    '''
+    Função que avisa que está sem copos para bebidas médias.
+
+    Esta função limpa a tela do terminal, imprime uma mensagem avisando que está sem copos médios para as bebidas médias.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║                                             ║")
     print("║         Infelizmente a máquina está         ║")
     print("║   sem copos para bebidas médias (100 mL)    ║")
@@ -81,9 +112,14 @@ def telaMsgSemCopoM():
     print()
 
 def telaMsgSemCopoG():
+    '''
+    Função que avisa que está sem copos para bebidas grandes.
+
+    Esta função limpa a tela do terminal, imprime uma mensagem avisando que está sem copos grandes para as bebidas grandes.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║                                             ║")
     print("║         Infelizmente a máquina está         ║")
     print("║   sem copos para bebidas grandes (150 mL)   ║")
@@ -92,6 +128,14 @@ def telaMsgSemCopoG():
     print()
 
 def telaProdIndisp(prodCliente):
+    '''
+    Função que avisa que um produto não está disponível.
+
+    Esta função limpa a tela do terminal, recebe uma lista com o produto do cliente e imprime que ele não está disponível.
+
+    Argumentos:
+        prodCliente (list): Lista do produto do cliente.    
+    '''
     limpaTela()
     if len(prodCliente[1]) % 2 == 0:
         passo1 = (42 - len(prodCliente[1])) // 2
@@ -100,7 +144,7 @@ def telaProdIndisp(prodCliente):
         passo1 = (43 - len(prodCliente[1])) // 2
         passo2 = passo1
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║                                             ║")
     print("║                Infelizmente                 ║")
     print("║", " " * passo1,end="")
@@ -113,6 +157,14 @@ def telaProdIndisp(prodCliente):
     time.sleep(3)
 
 def telaConfimacao(prodCliente):
+    '''
+    Função para confimar o preparo da bebida.
+
+    Esta função limpa a tela do terminal, recebe a lista com o produto do cliente e imprime uma mensagem de confimação se o cliente realmente deseja preparar esta bebida.
+
+    Argumentos:
+        prodCliente (list): Lista do produto do cliente.
+    '''
     limpaTela()
     if len(prodCliente[1]) % 2 == 0:
         passo1 = (42 - len(prodCliente[1])) // 2
@@ -121,7 +173,7 @@ def telaConfimacao(prodCliente):
         passo1 = (42 - len(prodCliente[1])) // 2
         passo2 = passo1 + 1
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅┅ Deseja preparar ┅┅┅┅┅┅┅┅┅ ★   ║")
     print("║                                             ║")
     print("║", " " * passo1,end="")
@@ -134,6 +186,14 @@ def telaConfimacao(prodCliente):
     print()
 
 def telaDinCliente(din):
+    '''
+    Função para exibir o dinheiro do cliente.
+
+    Esta função limpa a tela do terminal, recebe a variável de dinheiro do cliente e imprime o valor na tela.
+
+    Argumentos:
+        din (float): váriavel contendo o valor que o cliente colocou na máquina.
+    '''
     limpaTela()
     if verQuantNum(din) % 2 == 0:
         passo1 = (37 - verQuantNum(din)) // 2
@@ -142,8 +202,8 @@ def telaDinCliente(din):
         passo1 = (37 - verQuantNum(din)) // 2
         passo2 = passo1
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
-    print("║   ★ ┅┅┅┅┅┅┅┅┅┅ Dinhero Total ┅┅┅┅┅┅┅┅┅┅ ★   ║")
+    print("╔════╩═══════════════════════════════════╩════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅ Dinhero total ┅┅┅┅┅┅┅┅┅┅ ★   ║")
     print("║                                             ║")
     print("║", " " * passo1,end="")
     print(f"R$ {din:.2f}".replace(".",","),end="")
@@ -153,9 +213,14 @@ def telaDinCliente(din):
     print()
 
 def telaOutraBeb():
+    '''
+    Função que pergunta se quer uma nova bebida.
+
+    Esta função limpa a tela do terminal e imprime se o cliente quer comprar uma outra bebida.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅┅┅ Outra bebida? ┅┅┅┅┅┅┅┅┅┅ ★   ║")
     print("║                                             ║")
     print("║           1. Sim           0. Não           ║")
@@ -164,10 +229,15 @@ def telaOutraBeb():
     print()
 
 def telaFinalizar():
+    '''
+    Função que pergunta se quer finalizar.
+
+    Esta função limpa a tela do terminal e imprime se o usuário quer finalizar o programa.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
-    print("║   ★ ┅┅┅┅┅┅┅┅ Deseja Finalizar? ┅┅┅┅┅┅┅┅ ★   ║")
+    print("╔════╩═══════════════════════════════════╩════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅ Deseja finalizar? ┅┅┅┅┅┅┅┅ ★   ║")
     print("║                                             ║")
     print("║           1. Sim           0. Não           ║")
     print("║                                             ║") 
@@ -175,20 +245,30 @@ def telaFinalizar():
     print()
 
 def telaPrefencia():
+    '''
+    Função que imprime uma mensagem de agradecimento.
+
+    Esta função limpa a tela do terminal e imprime uma mensagem de agradecimento pela preferência.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║                                             ║")
-    print("║   ★ ┅┅┅┅ Agradecemos a Preferência ┅┅┅┅ ★   ║")
+    print("║   ★ ┅┅┅┅ Agradecemos a preferência ┅┅┅┅ ★   ║")
     print("║                                             ║") 
     print("╚═════════════════════════════════════════════╝")
     print()
     time.sleep(2)
 
 def telaInicial():
+    '''
+    Função que imprime o menu inicial.
+
+    Esta função limpa a tela do terminal e imprime o menu inicial com as opções de bebida, configurações, 'quem somos' e finalizar.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅ Escolha uma opção ┅┅┅┅┅┅┅┅ ★   ║")
     print("║ 1. Bebidas                                  ║")            
     print("║ 2. Configurações                            ║")
@@ -198,9 +278,14 @@ def telaInicial():
     print()
 
 def telaTamBeb():
+    '''
+    Função que imprime o menu com o tamanho das bebidas.
+
+    Esta função limpa a tela do terminal e imprime o menu do tamanho das bebidas (pequeno, médio e grande).
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅ Escolha o tamanho da bebida ┅┅┅ ★   ║")
     print("║ 1. Pequeno (P) ---------------------- 50 mL ║")
     print("║ 2. Médio (M) ----------------------- 100 mL ║")
@@ -210,9 +295,14 @@ def telaTamBeb():
     print()
 
 def telaDescCafe():
+    '''
+    Função que imprime o menu com o tipo de preparo da bebida.
+
+    Esta função limpa a tela do terminal e imprime o menu com os dois tipos de preparo da bebida (cafeinado e descafeinado).
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅ Escolha o tipo de preparo ┅┅┅┅ ★   ║")
     print("║ 1. Descafeinado                             ║")
     print("║ 2. Cafeinado                                ║")
@@ -222,9 +312,12 @@ def telaDescCafe():
 
 def prepararBebida(prodCliente):
     '''
-    Função que prepara a bebida do cliente
+    Função que prepara a bebida do cliente.
 
-    Esta função exibe uma mensagem que a bebida do cliente que está sendo preparada e outra que a bebida está pronta
+    Esta função limpa a tela do terminal, recebe a lista com o produto do cliente, exibe uma mensagem que a bebida do cliente que está sendo preparada e outra que a bebida está pronta.
+
+    Argumentos:
+        prodCliente (list): Lista do produto do cliente.
     '''
     limpaTela()
     print("")
@@ -293,9 +386,14 @@ def prepararBebida(prodCliente):
     time.sleep(2)
 
 def telaConfiguracoes():
+    '''
+    Função que imprime o menu configurações.
+
+    Esta função limpa a tela do terminal e imprime o menu de configurações.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅┅┅ Configurações ┅┅┅┅┅┅┅┅┅┅ ★   ║")
     print("║ 1. Informações internas                     ║")
     print("║ 2. Informações dos produtos                 ║")
@@ -305,11 +403,37 @@ def telaConfiguracoes():
     print()
 
 def telaInfInternas(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
+    '''
+    Função que exibe as informações internas de insumos e faturamento da máquina .
+
+    Esta função recebe diversas variáveis com a quantidade de cada insumo da máquina, além da diversas listas de produtos para calcular o faturamento.
+    Ela limpa a tela do terminal e imprime a quantidade de cada insumo e o faturamento.
+
+    Argumentos:
+        agua (int): variável com a quantidade em mililitros de água.
+        cafeSol (float): variável com a quantidade em gramas de café solúvel.
+        cafeSolDesc (float): variável com a quantidade em gramas de café solúvel descafeinado.
+        leitePo (float): variável com a quantidade em gramas de leite em pó.
+        chocoPo (float): variável com a quantidade em gramas de chocolate em pó.
+        canela (float): variável com a quantidade em gramas de canela.
+        copoP (int): variável com a quantidade de copos de tamanho (P).
+        copoM (int): variável com a quantidade de copos de tamanho (M).
+        copoG (int): variável com a quantidade de copos de tamanho (G).
+        prodEspresso (list): lista com as informções do produto 'Espresso'.
+        prodCafePreto (list): lista com as informções do produto 'Café Preto'.
+        prodLatte (list): lista com as informções do produto 'Latte'.
+        prodCafeComLeite (list): lista com as informções do produto 'Café com Leite'.
+        prodLeiteComCafe (list): lista com as informções do produto 'Leite com Café'.
+        prodCappuccino (list): lista com as informções do produto 'Cappuccino'.
+        prodMacchiato (list): lista com as informções do produto 'Macchiato'.
+        prodMocha (list): lista com as informções do produto 'Mocha'.
+        prodChocoQuente (list): lista com as informções do produto 'Chocolate Quente'.
+        '''
     limpaTela()
     faturamento = calcFaturamento(prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente)
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
-    print("║   ★ ┅┅┅┅┅┅ Informações Internas: ┅┅┅┅┅┅ ★   ║")
+    print("╔════╩═══════════════════════════════════╩════╗")
+    print("║   ★ ┅┅┅┅┅┅ Informações internas: ┅┅┅┅┅┅ ★   ║")
     print(f"║ Água: {agua} mL", end="")
     print(" " * (34 - verQuantNum(agua)), "║")
     print(f"║ Café Solúvel: {cafeSol:.2f} g".replace(".", ","), end="")
@@ -336,21 +460,42 @@ def telaInfInternas(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP,
     print()
 
 def telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG):
+    '''
+    Função que exibe as informações internas de insumos da máquina .
+
+    Esta função recebe diversas variáveis com a quantidade de cada insumo da máquina, limpa a tela do terminal e imprime a quantidade de cada insumo.
+
+    Argumentos:
+        agua (int): variável com a quantidade em mililitros de água.
+        cafeSol (float): variável com a quantidade em gramas de café solúvel.
+        cafeSolDesc (float): variável com a quantidade em gramas de café solúvel descafeinado.
+        leitePo (float): variável com a quantidade em gramas de leite em pó.
+        chocoPo (float): variável com a quantidade em gramas de chocolate em pó.
+        canela (float): variável com a quantidade em gramas de canela.
+        copoP (int): variável com a quantidade de copos de tamanho (P).
+        copoM (int): variável com a quantidade de copos de tamanho (M).
+        copoG (int): variável com a quantidade de copos de tamanho (G).
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
-    print("║   ★ ┅┅┅┅┅┅ Informações Internas: ┅┅┅┅┅┅ ★   ║")
+    print("╔════╩═══════════════════════════════════╩════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅ Reposição ┅┅┅┅┅┅┅┅┅┅┅┅ ★   ║")
     print(f"║ 1. Água: {agua} mL", end="")
     print(" " * (31 - verQuantNum(agua)), "║")
-    print(f"║ 2. Café Solúvel: {cafeSol:.2f} g".replace(".", ","), end="")
+    print("║ 2. ", end="")
+    print(f"Café Solúvel: {cafeSol:.2f} g".replace(".", ","), end="")
     print(" " * (21 - verQuantNum(cafeSol)), "║")
-    print(f"║ 3. Café Solúvel Descafeinado: {cafeSolDesc:.2f} g".replace(".", ","), end="")
+    print("║ 3. ", end="")
+    print(f"Café Solúvel Descafeinado: {cafeSolDesc:.2f} g".replace(".", ","), end="")
     print(" " * (8 - verQuantNum(cafeSolDesc)), "║")
-    print(f"║ 4. Leite em Pó: {leitePo:.2f} g".replace(".", ","), end="")
+    print("║ 4. ", end="")
+    print(f"Leite em Pó: {leitePo:.2f} g".replace(".", ","), end="")
     print(" " * (22 - verQuantNum(leitePo)), "║")
-    print(f"║ 5. Chocolate em Pó: {chocoPo:.2f} g".replace(".", ","), end="")
+    print("║ 5. ", end="")
+    print(f"Chocolate em Pó: {chocoPo:.2f} g".replace(".", ","), end="")
     print(" " * (18 - verQuantNum(chocoPo)), "║")
-    print(f"║ 6. Canela: {canela:.2f} g".replace(".", ","), end="")
+    print("║ 6. ", end="")
+    print(f"Canela: {canela:.2f} g".replace(".", ","), end="")
     print(" " * (27 - verQuantNum(canela)), "║")
     print(f"║ 7. Copo (P) 80 mL: {copoP} unidade(s)", end="")
     print(" " * (13 - verQuantNum(copoP)), "║")
@@ -362,40 +507,15 @@ def telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, c
     print("╚═════════════════════════════════════════════╝")
     print()
 
-""" def telaQuemSomos():
-    limpaTela()
-    print("                       ★ Bem-vindo à Starcoffee Machine! ★")
-    print("                                           ☕")
-    print("                   Desenvolvemos máquinas inteligentes que oferecem")
-    print("            exímia praticidade e qualidade no preparo de bebidas cotidianas.")
-    print("        ")
-    print("★ ════════════════════════════════════ Missão ═════════════════════════════════════ ★")
-    print("")
-    print("  ☕ Oferecer um sistema eficiente e intuitivo no preparo de cafés de qualidade,")
-    print("   criando uma experiência confortável entre o usuário e máquina.")
-    print("")
-    print("★ ═════════════════════════════════════ Visão ═════════════════════════════════════ ★")
-    print("")
-    print("  ☕ Visamos nos tornar referência na fabricação de máquinas de bebida, expandindo")
-    print("   o nicho para além do café e estando sempre presente nas pausas para o café.")
-    print("")
-    print("★ ════════════════════════════════════ Valores ════════════════════════════════════ ★")
-    print("")
-    print("  ☕ Praticidade;   ☕ Conforto;   ☕ Compromisso com o cliente;")
-    print("  ☕ Organização;   ☕ Qualidade;  ☕ Ética sustentável.")
-    print("")
-    print("★ ════════════════════════════════ Desenvolvedores ════════════════════════════════ ★")
-    print("")
-    print("  ★ Leandro Alves Vieira")
-    print("  ★ Mateus Fagian")
-    print("  ★ Victor Ming Hur dos Santos Tsai")
-    print()
-    input("Pressione qualquer tecla para sair ") """
-
 def telaQuemSomos():
+    '''
+    Função que imprime missão, visão, valores e desenvolvedores da máquina de café.
+
+    Está função limpa a tela do terminal e imprime missão, visão, valores e desenvolvedores da máquina de café.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║     ★ Bem-vindo à Starcoffee Machine ★      ║")
     print("║                                             ║")
     print("║     Desenvolvemos máquinas inteligentes     ║")
@@ -418,12 +538,12 @@ def telaQuemSomos():
     print("║                                             ║")
     print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅┅ Valores ┅┅┅┅┅┅┅┅┅┅┅┅┅ ★   ║")
     print("║                                             ║")
-    print("║               ☕ Praticidade                ║")
-    print("║               ☕ Organização                ║")
-    print("║                 ☕ Conforto                 ║")
-    print("║                ☕ Qualidade                 ║")
-    print("║            ☕ Ética sustentável             ║")
-    print("║        ☕ Compromisso com o cliente         ║")
+    print("║                 Praticidade                 ║")
+    print("║                 Organização                 ║")
+    print("║                   Conforto                  ║")
+    print("║                  Qualidade                  ║")
+    print("║              Ética sustentável              ║")
+    print("║          Compromisso com o cliente          ║")
     print("║                                             ║")
     print("║   ★ ┅┅┅┅┅┅┅┅┅ Desenvolvedores ┅┅┅┅┅┅┅┅┅ ★   ║")
     print("║                                             ║")
@@ -437,13 +557,13 @@ def telaQuemSomos():
 
 def infEspresso():
     '''
-    Função que exibe as informações do espresso
+    Função que exibe as informações do Espresso.
 
-    Esta função imprime as informações do espresso nos tamanhos (P), (M) e (G)
+    Esta função imprime as informações do Espresso nos tamanhos (P), (M) e (G).
     '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅ Espresso ┅┅┅┅┅┅┅┅┅┅┅┅ ★    ║")
     print("║                                             ║")
     print("║ Espresso (P)                                ║")
@@ -468,13 +588,13 @@ def infEspresso():
 
 def infCafePreto():
     '''
-    Função que exibe as informações do café preto
+    Função que exibe as informações do Café Preto.
 
-    Esta função imprime as informações do café preto nos tamanhos (P), (M) e (G)
+    Esta função imprime as informações do Café Preto nos tamanhos (P), (M) e (G).
     '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅ Café Preto ┅┅┅┅┅┅┅┅┅┅┅ ★    ║")
     print("║                                             ║")
     print("║ Café Preto (P)                              ║")
@@ -499,13 +619,13 @@ def infCafePreto():
 
 def infLatte():
     '''
-    Função que exibe as informações do latte
+    Função que exibe as informações do Latte.
 
-    Esta função imprime as informações do latte nos tamanhos (P), (M) e (G)
+    Esta função imprime as informações do Latte nos tamanhos (P), (M) e (G).
     '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅┅┅ Latte ┅┅┅┅┅┅┅┅┅┅┅┅┅┅ ★   ║")
     print("║                                             ║")
     print("║ Latte (P)                                   ║")
@@ -533,13 +653,13 @@ def infLatte():
 
 def infCafeComLeite():
     '''
-    Função que exibe as informações do café com leite
+    Função que exibe as informações do Café com Leite.
 
-    Esta função imprime as informações do café com leite nos tamanhos (P), (M) e (G)
+    Esta função imprime as informações do Café com Leite nos tamanhos (P), (M) e (G).
     '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅┅ Café com Leite ┅┅┅┅┅┅┅┅┅ ★    ║")
     print("║                                             ║")
     print("║ Café com Leite (P)                          ║")
@@ -567,13 +687,13 @@ def infCafeComLeite():
 
 def infLeiteComCafe():
     '''
-    Função que exibe as informações do leite com café
+    Função que exibe as informações do Leite com Café.
 
-    Esta função imprime as informações do leite com café nos tamanhos (P), (M) e (G)
+    Esta função imprime as informações do Leite com Café nos tamanhos (P), (M) e (G).
     '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅┅ Leite com Café ┅┅┅┅┅┅┅┅┅ ★    ║")
     print("║                                             ║")
     print("║ Leite com Café (P)                          ║")
@@ -601,13 +721,13 @@ def infLeiteComCafe():
 
 def infCappuccino():
     '''
-    Função que exibe as informações do cappuccino
+    Função que exibe as informações do Cappuccino.
 
-    Esta função imprime as informações do cappuccino nos tamanhos (P), (M) e (G)
+    Esta função imprime as informações do Cappuccino nos tamanhos (P), (M) e (G).
     '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅ Cappuccino ┅┅┅┅┅┅┅┅┅┅┅ ★    ║")
     print("║                                             ║")
     print("║ Cappuccino (P)                              ║")
@@ -641,13 +761,13 @@ def infCappuccino():
 
 def infMacchiato():
     '''
-    Função que exibe as informações do macchiato
+    Função que exibe as informações do Macchiato.
 
-    Esta função imprime as informações do macchiato nos tamanhos (P), (M) e (G)
+    Esta função imprime as informações do Macchiato nos tamanhos (P), (M) e (G).
     '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅ Macchiato ┅┅┅┅┅┅┅┅┅┅┅┅ ★   ║")
     print("║                                             ║")
     print("║ Macchiato (P)                               ║")
@@ -675,13 +795,13 @@ def infMacchiato():
 
 def infMocha():
     '''
-    Função que exibe as informações do mocha
+    Função que exibe as informações do Mocha.
 
-    Esta função imprime as informações do mocha nos tamanhos (P), (M) e (G)
+    Esta função imprime as informações do Mocha nos tamanhos (P), (M) e (G).
     '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅┅┅ Mocha ┅┅┅┅┅┅┅┅┅┅┅┅┅┅ ★   ║")
     print("║                                             ║")
     print("║ Mocha (P)                                   ║")
@@ -712,13 +832,13 @@ def infMocha():
 
 def infChocoQuente():
     '''
-    Função que exibe as informações do chocolate quente
+    Função que exibe as informações do Chocolate Quente.
 
-    Esta função imprime as informações do chocolate quente nos tamanhos (P), (M) e (G)
+    Esta função imprime as informações do Chocolate Quente nos tamanhos (P), (M) e (G).
     '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅┅┅┅ Chocolate Quente ┅┅┅┅┅┅┅┅ ★    ║")
     print("║                                             ║")
     print("║ Chocolate Quente (P)                        ║")
@@ -745,6 +865,11 @@ def infChocoQuente():
     print()
 
 def telaInfProd():
+    '''
+    Função que controla a exibição das impormações dos produtos.
+
+    Esta função navega entre as informações dos produtos conforme o usuário digita se quer avançar, voltar ou sair.
+    '''
     cont = 1
     while True:
         match cont:
@@ -783,8 +908,6 @@ def telaInfProd():
         if cont == 10:
             cont = 1
                 
-    
-
 def somarLista(a, b):
     '''
     Função que soma duas listas
@@ -813,7 +936,7 @@ def subtrairLista(a, b):
 
 def digitarIntPositivo():
     '''
-    Função que verifica o valor digitado e retorna se for inteiro positivo
+    Função que verifica o valor digitado e o retorna se for inteiro positivo
 
     Esta função verifica se o valor digitado é um inteiro positivo, se não for, exibe uma mensagem, se for, retorna o valor
 
@@ -831,10 +954,21 @@ def digitarIntPositivo():
             print()
     except:
         print()
-        print("Parâmetro inválido")
+        print("Parâmetro inválido!")
         print()
 
 def verQuantNum(num):
+    '''
+    Função que verifica quantos algarismos tem no número.
+
+    Esta função recebe uma várial numerica e vefica quantos digitos a compõe.
+
+    Argumentos:
+        num (float): número a ser verificados quantos digitos a compõe.
+
+    Retorna:
+        int: quantidade de digitos a compõe o número dado como argumento.
+    '''
     if num // 10 < 1:
         return 1
     else:
@@ -842,14 +976,15 @@ def verQuantNum(num):
 
 def somarDinheiro(din, listaVal, listaDinCliente):
     '''
-    Função que recebe dinheiro do cliente
+    Função que recebe dinheiro do cliente.
 
-    Esta função recebe duas listas, pergunta quantas notas ou moedas foram inseridas de cada valor correspondente as posições da primeira lista e armazena essa quantidade na segunda lista. 
-    Chama função digitarIntPositivo para verificar se o número é um inteiro positivo
-    
+    Esta função recebe duas listas, pergunta quantas notas ou moedas foram inseridas de cada valor correspondente as posições da primeira lista e armazena essa quantidade na segunda lista.
+    Se o cliente já tiver colocado dinhero na máquina antes, este valor é acrescido a nova quantidade.
+
     Argumentos:
-        listaVal (lista): Lista que contém os valores das notas e das moedas
-        listaDinCliente (lista): Lista que armazenará a quantidade de dinheiro do cliente
+        din (float): dinheiro total do cliente
+        listaVal (lista): lista que contém os valores das notas e das moedas
+        listaDinCliente (lista): lista que armazenará a quantidade de dinheiro do cliente
     '''
     for i in range(12):
         telaDinCliente(din)
@@ -868,17 +1003,17 @@ def somarDinheiro(din, listaVal, listaDinCliente):
 
 def dinCliente(listaVal, listaDinCliente):
     '''
-    Função que calcula o dinheiro do cliente
+    Função que calcula o dinheiro do cliente.
 
     Esta função recebe duas lista, a primeira com o valor de cada nota e moeda, a segunda com a quantidade que o cliente tem de cada um desses valores. 
-    Depois multiplica termo a termo a primeira pela segunda e soma a uma variável com o total
+    Depois multiplica termo a termo a primeira pela segunda e soma a uma variável com o total.
 
     Argumentos:
-        listaVal (lista): Lista que contém os valores das notas e das moedas
-        listaDinCliente (lista): Lista com a quantidade de dinheiro do cliente
+        listaVal (lista): Lista que contém os valores das notas e das moedas.
+        listaDinCliente (lista): Lista com a quantidade de dinheiro do cliente.
 
     Retorna:
-        float: A soma de todo dinheiro do cliente
+        float: A soma de todo dinheiro do cliente.
     '''
     din = 0
     for i in range(len(listaDinCliente)):
@@ -887,21 +1022,21 @@ def dinCliente(listaVal, listaDinCliente):
 
 def verificarCaixa(troco, listaVal, listaCaixa, listaDinCliente):
     '''
-    Função que verifica se tem dinheiro para troco no caixa da máquina
+    Função que verifica se tem dinheiro para troco no caixa da máquina.
 
-    Esta função recebe o valor do troco que tem que dar para o cliente e mais 3 listas.
+    Esta função recebe o valor do troco que tem que dar para o cliente, a lista com os valores das notas e das moedas, a lista com a quantidade de notas e moedas no caixa da máquina e a lista com a quantidade de dinheiro do cliente
     Chama a função somarLista para colocar o dinheiro do cliente no caixa da empresa.
     Faz a verificação termo a termo da lista do caixa para dar o troco para o cliente.
-    Volta a lista do caixa ao normal. E se tiver troco, retorna True, se não, retorna False
+    Volta a lista do caixa ao normal. E se tiver troco, retorna True, se não, retorna False.
 
     Argumentos:
-        troco (float): Valor a ser verificado se tem troco no caixa
-        listaVal (lista): Lista que contém os valores das notas e das moedas
-        listaCaixa (lista): Lista que contém a quantidade de notas e moedas no caixa da máquina
-        listaDinCliente (lista): Lista que contém a quantidade de dinheiro do cliente
+        troco (float): valor a ser verificado se tem troco no caixa.
+        listaVal (lista): lista que contém os valores das notas e das moedas.
+        listaCaixa (lista): lista que contém a quantidade de notas e moedas no caixa da máquina.
+        listaDinCliente (lista): lista que contém a quantidade de dinheiro do cliente.
 
     Retorna:
-        bool: True se tiver dinheiro no caixa, False se não tiver dinheiro no caixa
+        bool: True se tiver dinheiro no caixa, False se não tiver dinheiro no caixa.
     '''
     somarLista(listaCaixa, listaDinCliente)
     listaAux = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -923,15 +1058,15 @@ def verificarCaixa(troco, listaVal, listaCaixa, listaDinCliente):
 
 def darTroco(troco, listaVal, listaCaixa):
     '''
-    Função que dá o troco para o cliente
+    Função que dá o troco para o cliente.
 
     Esta função recebe a quantidade de troco que deve ser dado ao cliente, imprime esses valores, nota por nota e centavo por centavo.
-    Retira a mesma quantidade de nota e moedas do caixa
+    Retira a mesma quantidade de nota e moedas do caixa.
 
     Argumentos:
-        troco (float): Valor que precisa dar de troco ao cliente
-        listaVal (lista): Lista que contém os valores das notas e das moedas
-        listaCaixa (lista): Lista que contém a quantidade de notas e moedas no caixa da máquina
+        troco (float): Valor que precisa dar de troco ao cliente.
+        listaVal (lista): Lista que contém os valores das notas e das moedas.
+        listaCaixa (lista): Lista que contém a quantidade de notas e moedas no caixa da máquina.
     '''
     i = 0
     print()
@@ -949,6 +1084,14 @@ def darTroco(troco, listaVal, listaCaixa):
     time.sleep(3)
 
 def verificaTam():
+    '''
+    Função que pergunta qual o tamanho da bebida do cliente.
+
+    Esta função pergunta qual o tamanho da bebida do cliente e verifica se o valor é válido.
+
+    Retorna:
+        float: retorna um valor a ser multiplicado no preço da bebida conforme o tamanho ou 0 que fará voltar no menu.
+    '''
     while True:
         tam = str(input("Qual o tamanho da sua bebida? "))
         if tam == "P" or tam == "p" or tam == "1" or tam == "50":
@@ -965,6 +1108,11 @@ def verificaTam():
             print()
 
 def verificaDesc():
+    '''
+    Função que pergunta se a bebida será descafeinada.
+
+    Função que pergunta se a bebida será descafeinada e verifica se o valor digitado é válido.
+    '''
     while True:
         desc = str(input("Gostaria da sua bebida descafeinada? "))
         if desc == "S" or desc == "s" or desc == "1" or desc == "D" or desc == "d":
@@ -975,13 +1123,32 @@ def verificaDesc():
             return 2
         else:
             print()
-            print("Parâmetro inválido")
+            print("Parâmetro inválido!")
             print()
 
 def verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
+    '''
+    Função que verifica se o produto está disponível.
+
+    Esta função recebe o tamanho, a lista da posição, o status de disponibilidade e as listas dos produtos. Imprime na tela do termina qual produto está disponível e indisponível.
+
+    Argumentos:
+        tam (float): valor que representa o tamanho do produto.
+        listaPosição (list): lista com a ordem que ficará organizado os produtos.
+        statusProd (list): lista com o status de disponibilidade de cada produto.
+        prodEspresso (list): lista com as informções do produto 'Espresso'.
+        prodCafePreto (list): lista com as informções do produto 'Café Preto'.
+        prodLatte (list): lista com as informções do produto 'Latte'.
+        prodCafeComLeite (list): lista com as informções do produto 'Café com Leite'.
+        prodLeiteComCafe (list): lista com as informções do produto 'Leite com Café'.
+        prodCappuccino (list): lista com as informções do produto 'Cappuccino'.
+        prodMacchiato (list): lista com as informções do produto 'Macchiato'.
+        prodMocha (list): lista com as informções do produto 'Mocha'.
+        prodChocoQuente (list): lista com as informções do produto 'Chocolate Quente'.
+    '''
     limpaTela()
     xicaraG()
-    print("╔════════╩═══════════════════════════╩════════╗")
+    print("╔════╩═══════════════════════════════════╩════╗")
     print("║   ★ ┅┅┅┅┅ Escolha uma das bebidas ┅┅┅┅┅ ★   ║")
     for i in range(len(listaPosicao)):
         match listaPosicao[i]:
@@ -1036,15 +1203,36 @@ def verificaDisp(tam, listaPosicao, statusProd, prodEspresso, prodCafePreto, pro
     print()
 
 def escolheProd(listaPosicao, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
-    print("Digite o número da sua bebida: ", end="")
-    cod = digitarIntPositivo()
+    '''
+    Função que pergunta qual o produto que o cliente deseja.
+
+    Esta função pergunta qual o produto que o cliente deseja, verifica qual é de acordo com a posição e retorna a lista do produto ou 0 se não for escolhido nada.
+    
+    Argumentos:
+        listaPosição (list): lista com a ordem que está organizado os produtos na tela de bebidas.
+        prodEspresso (list): lista com as informções do produto 'Espresso'.
+        prodCafePreto (list): lista com as informções do produto 'Café Preto'.
+        prodLatte (list): lista com as informções do produto 'Latte'.
+        prodCafeComLeite (list): lista com as informções do produto 'Café com Leite'.
+        prodLeiteComCafe (list): lista com as informções do produto 'Leite com Café'.
+        prodCappuccino (list): lista com as informções do produto 'Cappuccino'.
+        prodMacchiato (list): lista com as informções do produto 'Macchiato'.
+        prodMocha (list): lista com as informções do produto 'Mocha'.
+        prodChocoQuente (list): lista com as informções do produto 'Chocolate Quente'.
+
+    Retorna:
+        list: lista do produto escolido pelo cliente.
+        int: 0 se não for escolhido nenhum produto.
+    '''
+    cod = None
     while cod == None or cod < 0 or cod > 9:
         print("Digite o número da sua bebida: ", end="")
         cod = digitarIntPositivo()
-        if cod == None or cod < 0 or cod > 9:
-            print()
-            print("Parâmetro inválido!")
-            print()
+        if cod != None:
+            if cod < 0 or cod > 9:
+                print()
+                print("Parâmetro inválido!")
+                print()
     if cod == 0:
         return 0
     match listaPosicao[cod - 1]:
@@ -1200,68 +1388,122 @@ def reposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM
         print()
         match repor:
             case "1":
-                print("Digite a quantidade de água para adicionar (em mL): ", end="")
-                x = digitarIntPositivo()
-                agua += x
-                print()
-                print(f"{x}mL de água foram adicionados ao reservatório.")
-                time.sleep(1) 
+                while True:
+                    telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
+                    print("Digite a quantidade de água para adicionar (em mL): ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0:
+                            agua += x
+                            print()
+                            print(f"{x}mL de água foram adicionados ao reservatório.")
+                            time.sleep(1.5)
+                            break 
+                    time.sleep(1)
             case "2":
-                print("Digite a quantidade de café solúvel para adicionar (em g): ", end="")
-                x = digitarIntPositivo()
-                cafeSol += x
-                print()
-                print(f"{x}g de café solúvel foram adicionados ao reservatório.")
-                time.sleep(1)
+                while True:
+                    telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
+                    print("Digite a quantidade de café solúvel para adicionar (em g): ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0:
+                            cafeSol += x
+                            print()
+                            print(f"{x}g de café solúvel foram adicionados ao reservatório.")
+                            time.sleep(1.5)
+                            break 
+                    time.sleep(1)
             case "3":
-                print("Digite a quantidade de café solúvel (descafeinado) para adicionar (em g): ", end="")
-                x = digitarIntPositivo()
-                cafeSolDesc += x
-                print()
-                print(f"{x}g de café solúvel descafeinado foram adicionados ao reservatório.")
-                time.sleep(1)
+                while True:
+                    telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
+                    print("Digite a quantidade de café solúvel (descafeinado) para adicionar (em g): ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0:
+                            cafeSolDesc += x
+                            print()
+                            print(f"{x}g de café solúvel descafeinado foram adicionados ao reservatório.")
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
             case "4":
-                print("Digite a quantidade de leite em pó para adicionar (em g): ", end="")
-                x = digitarIntPositivo()
-                leitePo += x
-                print()
-                print(f"{x}g de leite em pó foram adicionados ao reservatório.")
-                time.sleep(1)
+                while True:
+                    telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
+                    print("Digite a quantidade de leite em pó para adicionar (em g): ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0:
+                            leitePo += x
+                            print()
+                            print(f"{x}g de leite em pó foram adicionados ao reservatório.")
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
             case "5":
-                print("Digite a quantidade de chocolate em pó para adicionar (em g): ", end="")
-                x = digitarIntPositivo()
-                chocoPo += x
-                print()
-                print(f"{x}g de chocolate em pó foram adicionados ao reservatório.")
-                time.sleep(1)
+                while True:
+                    telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
+                    print("Digite a quantidade de chocolate em pó para adicionar (em g): ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0:
+                            chocoPo += x
+                            print()
+                            print(f"{x}g de chocolate em pó foram adicionados ao reservatório.")
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
             case "6":
-                print("Digite a quantidade de canela para adicionar (em g): ", end="")
-                x = digitarIntPositivo()
-                canela += x
-                print()
-                print(f"{x}g de canela foram adicionados ao reservatório.")
-                time.sleep(1)
+                while True:
+                    telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
+                    print("Digite a quantidade de canela para adicionar (em g): ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0:
+                            canela += x
+                            print()
+                            print(f"{x}g de canela foram adicionados ao reservatório.")
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
             case "7":
-                print("Digite a quantidade de copos (tamanho P) para adicionar: ", end="")
-                x = digitarIntPositivo()
-                copoP += x
-                print()
-                print(f"{x}g de canela foram adicionados ao reservatório.")
-                time.sleep(1)
+                while True:
+                    telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
+                    print("Digite a quantidade de copos (tamanho P) para adicionar: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0:
+                            copoP += x
+                            print()
+                            print(f"{x} copos P foram adicionados ao reservatório.")
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
             case "8":
-                print("Digite a quantidade de copos (tamanho M) para adicionar: ", end="")
-                x = digitarIntPositivo()
-                copoM += x
-                print()
-                print(f"{x}g de canela foram adicionados ao reservatório.")
-                time.sleep(1)
+                while True:
+                    telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
+                    print("Digite a quantidade de copos (tamanho M) para adicionar: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0:
+                            copoM += x
+                            print()
+                            print(f"{x} copos M foram adicionados ao reservatório.")
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
             case "9":
-                print("Digite a quantidade de copos (tamanho G) para adicionar: ", end="")
-                x = digitarIntPositivo()
-                copoG += x
-                print()
-                print(f"{x}g de canela foram adicionados ao reservatório.")
-                time.sleep(1)
+                while True:
+                    telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
+                    print("Digite a quantidade de copos (tamanho G) para adicionar: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0:
+                            copoG += x
+                            print()
+                            print(f"{x} copos G foram adicionados ao reservatório.")
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
             case "0":
                 return agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG
             case _:
@@ -1366,7 +1608,7 @@ def venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copo
                                     break
                                 else:
                                     print()
-                                    print("Parâmetro inválido")
+                                    print("Parâmetro inválido!")
                                     print()
                                     res = str(input(f"Restam R$ {din:.2f}! Deseja comprar outra bebida? ".replace(".",",")))
                             if res == "S" or res == "s" or res == "1":
