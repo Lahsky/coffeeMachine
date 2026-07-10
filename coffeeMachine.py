@@ -16,7 +16,7 @@ def xicaraG():
     '''
     Função que imprime uma xícara de café.
 
-    Está função imprime uma xícara de café com o nome da máquina de café.
+    Está função imprime uma xícara de café com o nome da máquina de bebidas.
     '''
     print("              ഽ       ഽ       ഽ       ")
     print("               ഽ       ഽ       ഽ       ")
@@ -397,7 +397,9 @@ def telaConfiguracoes():
     print("║   ★ ┅┅┅┅┅┅┅┅┅┅ Configurações ┅┅┅┅┅┅┅┅┅┅ ★   ║")
     print("║ 1. Informações internas                     ║")
     print("║ 2. Informações dos produtos                 ║")
-    print("║ 3. Reposição                                ║")
+    print("║ 3. Reposição de insumos                     ║")
+    print("║ 4. Reposição de notas e moedas              ║")
+    print("║ 5. Sangria                                  ║")
     print("║ 0. Voltar                                   ║")
     print("╚═════════════════════════════════════════════╝")
     print()
@@ -507,11 +509,47 @@ def telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, c
     print("╚═════════════════════════════════════════════╝")
     print()
 
+def telaCaixa(listaVal, listaCaixa):
+    '''
+    Função que mostra valores do caixa da máquina
+
+    Esta função recebe a lista de valores de notas e moedas, a lista com a quantidade de notas e moedas que tem no caixa e imprime os valores na tela do terminal. 
+
+    Argumentos:
+        listaVal (list): lista que contém os valores das notas e das moedas.
+        listaCaixa (list): lista que contém a quantidade de notas e moedas no caixa da máquina.
+    '''
+    limpaTela()
+    xicaraG()
+    totalCaixa = 0
+    for i in range(len(listaVal)):
+        totalCaixa =  totalCaixa + listaCaixa[i] * listaVal[i]
+    print("╔════╩═══════════════════════════════════╩════╗")
+    print("║   ★ ┅┅┅┅┅┅┅┅┅┅┅┅┅┅ Caixa ┅┅┅┅┅┅┅┅┅┅┅┅┅┅ ★   ║")
+    print(f"║ 1.  R$ 100,00: {listaCaixa[0]} notas", " " * (21 - verQuantNum(listaCaixa[0])), "║")
+    print(f"║ 2.  R$ 50,00:  {listaCaixa[1]} notas", " " * (21 - verQuantNum(listaCaixa[1])), "║")
+    print(f"║ 3.  R$ 20,00:  {listaCaixa[2]} notas", " " * (21 - verQuantNum(listaCaixa[2])), "║" )
+    print(f"║ 4.  R$ 10,00:  {listaCaixa[3]} notas", " " * (21 - verQuantNum(listaCaixa[3])), "║" )
+    print(f"║ 5.  R$ 5,00:   {listaCaixa[4]} notas", " " * (21 - verQuantNum(listaCaixa[4])), "║" )
+    print(f"║ 6.  R$ 2,00:   {listaCaixa[5]} notas", " " * (21 - verQuantNum(listaCaixa[5])), "║" )
+    print(f"║ 7.  R$ 1,00:   {listaCaixa[6]} notas", " " * (21 - verQuantNum(listaCaixa[6])), "║" )
+    print(f"║ 8.  R$ 0,50:   {listaCaixa[7]} moedas", " " * (20 - verQuantNum(listaCaixa[7])), "║" )
+    print(f"║ 9.  R$ 0,25:   {listaCaixa[8]} moedas", " " * (20 - verQuantNum(listaCaixa[8])), "║" )
+    print(f"║ 10. R$ 0,10:   {listaCaixa[9]} moedas", " " * (20 - verQuantNum(listaCaixa[9])), "║" )
+    print(f"║ 11. R$ 0,05:   {listaCaixa[10]} moedas", " " * (20 - verQuantNum(listaCaixa[10])), "║" )
+    print(f"║ 12. R$ 0,01:   {listaCaixa[11]} moedas", " " * (20 - verQuantNum(listaCaixa[11])), "║" )
+    print("║ 0.  Voltar                                  ║")
+    print("║                                             ║")
+    print(f"║ Total: R$ {totalCaixa:.2f}".replace(".",","), end="")
+    print(" " * (30 - verQuantNum(totalCaixa)), "║")
+    print("╚═════════════════════════════════════════════╝")
+    print()
+
 def telaQuemSomos():
     '''
-    Função que imprime missão, visão, valores e desenvolvedores da máquina de café.
+    Função que imprime missão, visão, valores e desenvolvedores da máquina de bebidas.
 
-    Está função limpa a tela do terminal e imprime missão, visão, valores e desenvolvedores da máquina de café.
+    Está função limpa a tela do terminal e imprime missão, visão, valores e desenvolvedores da máquina de bebidas.
     '''
     limpaTela()
     xicaraG()
@@ -915,8 +953,8 @@ def somarLista(a, b):
     Esta função recebe duas listas, verifica o tamanho da primeira e soma termo a termo com a segunda
 
     Argumentos:
-        a (lista): A primeira lista que terá seus valores acrescidos
-        b (lista): A segunda lista que terá seus valores somados a primeira
+        a (list): A primeira lista que terá seus valores acrescidos
+        b (list): A segunda lista que terá seus valores somados a primeira
     '''
     for i in range(len(a)):
         a[i] = a[i] + b[i]
@@ -928,8 +966,8 @@ def subtrairLista(a, b):
     Esta função recebe duas listas, verifica o tamanho da primeira e subtrai termo a termo com a segunda
 
     Argumentos:
-        a (lista): A primeira lista que terá seus valores decrescidos
-        b (lista): A segunda lista que terá seus valores subtraidos a primeira
+        a (list): A primeira lista que terá seus valores decrescidos
+        b (list): A segunda lista que terá seus valores subtraidos a primeira
     '''
     for i in range(len(a)):
         a[i] = a[i] - b[i]
@@ -983,8 +1021,8 @@ def somarDinheiro(din, listaVal, listaDinCliente):
 
     Argumentos:
         din (float): dinheiro total do cliente
-        listaVal (lista): lista que contém os valores das notas e das moedas
-        listaDinCliente (lista): lista que armazenará a quantidade de dinheiro do cliente
+        listaVal (list): lista que contém os valores das notas e das moedas
+        listaDinCliente (list): lista que armazenará a quantidade de dinheiro do cliente
     '''
     for i in range(12):
         telaDinCliente(din)
@@ -1009,8 +1047,8 @@ def dinCliente(listaVal, listaDinCliente):
     Depois multiplica termo a termo a primeira pela segunda e soma a uma variável com o total.
 
     Argumentos:
-        listaVal (lista): Lista que contém os valores das notas e das moedas.
-        listaDinCliente (lista): Lista com a quantidade de dinheiro do cliente.
+        listaVal (list): Lista que contém os valores das notas e das moedas.
+        listaDinCliente (list): Lista com a quantidade de dinheiro do cliente.
 
     Retorna:
         float: A soma de todo dinheiro do cliente.
@@ -1031,9 +1069,9 @@ def verificarCaixa(troco, listaVal, listaCaixa, listaDinCliente):
 
     Argumentos:
         troco (float): valor a ser verificado se tem troco no caixa.
-        listaVal (lista): lista que contém os valores das notas e das moedas.
-        listaCaixa (lista): lista que contém a quantidade de notas e moedas no caixa da máquina.
-        listaDinCliente (lista): lista que contém a quantidade de dinheiro do cliente.
+        listaVal (list): lista que contém os valores das notas e das moedas.
+        listaCaixa (list): lista que contém a quantidade de notas e moedas no caixa da máquina.
+        listaDinCliente (list): lista que contém a quantidade de dinheiro do cliente.
 
     Retorna:
         bool: True se tiver dinheiro no caixa, False se não tiver dinheiro no caixa.
@@ -1065,10 +1103,11 @@ def darTroco(troco, listaVal, listaCaixa):
 
     Argumentos:
         troco (float): Valor que precisa dar de troco ao cliente.
-        listaVal (lista): Lista que contém os valores das notas e das moedas.
-        listaCaixa (lista): Lista que contém a quantidade de notas e moedas no caixa da máquina.
+        listaVal (list): Lista que contém os valores das notas e das moedas.
+        listaCaixa (list): Lista que contém a quantidade de notas e moedas no caixa da máquina.
     '''
     i = 0
+    troco = round(troco, 2)
     print()
     print("Acompanhe seu troco: ")
     while troco != 0:
@@ -1077,7 +1116,7 @@ def darTroco(troco, listaVal, listaCaixa):
         elif listaCaixa[i] == 0 or (troco - listaVal[i]) < 0:
             i = i + 1
         else:
-            print(f"R$ {listaVal[i]:.2f}")
+            print(f"R$ {listaVal[i]:.2f}".replace(".",","))
             troco = round(troco - listaVal[i], 2)
             listaCaixa[i] = listaCaixa[i] - 1
             time.sleep(0.1)
@@ -1254,12 +1293,44 @@ def escolheProd(listaPosicao, prodEspresso, prodCafePreto, prodLatte, prodCafeCo
             return prodMocha
         case 9:
             return prodChocoQuente
-        case _:
-            print()
-            print("Parâmetro inválido!")
-            print()
 
-def compraProd(tam, desc, prodCliente, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela):
+def vendaDoProduto(din, tam, desc, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodCliente, listaCaixa, listaDinCliente):
+    '''
+    Função que vende o produto.
+
+    Esta função verifica o tipo de produto, tamanho e tipo de preparo, logo após debita esses valores do reservatório da máquina.
+
+    Argumentos:
+        din (float): soma total do dinheiro do cliente.
+        tam (float): tamanho da bebida escolhida do cliente.
+        desc (int): tipo de preparo da bebida (cafeinado ou descafeinado).
+        agua (int): variável com a quantidade de água.
+        cafeSol (float): variável com a quantidade de café solúvel.
+        cafeSolDesc (float): variável com a quantidade de café solúvel descafeinado.
+        leitePo (float): variável com a quantidade de leite em pó.
+        chocoPo (float): variável com a quantidade de chocolate em pó.
+        canela (float): variável com a quantidade de canela.
+        copoP (int): variável com a quantidade de copos de tamanho (P).
+        copoM (int): variável com a quantidade de copos de tamanho (M).
+        copoG (int): variável com a quantidade de copos de tamanho (G).
+        prodCliente (list): lista com o produto que o cliente escolheu.
+        listaCaixa (list): lista com quantidade de notas e moedas do caixa.
+        listaDinCliente (list): lista com a quantidade de notas e moedas do cliente.
+
+    Retorna:
+        tuple: Uma tupla com o seguintes valores:
+            din (float): Dinheiro do cliente atualizado.
+            agua (int): Água atualizada.
+            cafeSol (float): Café solúvel atualizado.
+            cafeSolDesc (float): Café solúvel descafeinado atualizado.
+            leitePo (float): Leite em pó atualizado.
+            chocoPo (float): Chocolate em pó atualizado.
+            canela (float): Canela em pó atualizada.
+            copoP (int): Número de copos (P) atualizado.
+            copoM (int): Número de copos (M) atualizado.
+            copoG (int): Número de copos (G) atualizado.
+            listaDinCliente (list): Lista com a quantidade de notas e moedas do cliente zerado.
+    '''
     if desc == 1:
         if tam == 1:
             cafeSolDesc = cafeSolDesc - prodCliente[4]
@@ -1275,40 +1346,42 @@ def compraProd(tam, desc, prodCliente, agua, cafeSol, cafeSolDesc, leitePo, choc
         else:
             cafeSol = cafeSol - prodCliente[4] * 3
     if tam == 1:
+        copoP = copoP - 1
         agua = agua - 50
         leitePo = leitePo - prodCliente[5]
         chocoPo = chocoPo - prodCliente[6]
         canela = canela - prodCliente[7]
+        prodCliente[8] = prodCliente[8] + 1
     elif tam == 1.4:
+        copoM = copoM - 1
         agua = agua - 100
         leitePo = leitePo - prodCliente[5] * 2
         chocoPo = chocoPo - prodCliente[6] * 2
         canela = canela - prodCliente[7] * 2
+        prodCliente[9] = prodCliente[9] + 1
     else:
+        copoG = copoG - 1
         agua = agua - 150
         leitePo = leitePo - prodCliente[5] * 3
         chocoPo = chocoPo - prodCliente[6] * 3
         canela = canela - prodCliente[7] * 3
-    return agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela 
-
-def vendaDoProduto(din, tam, desc, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodCliente, listaCaixa, listaDinCliente):
-    if tam == 1:
-        copoP = copoP - 1
-        prodCliente[8] = prodCliente[8] + 1
-    elif tam == 1.4:
-        copoM = copoM - 1
-        prodCliente[9] = prodCliente[9] + 1
-    else:
-        copoG = copoG - 1
         prodCliente[10] = prodCliente[10] + 1
     din = din - prodCliente[2] * tam
     somarLista(listaCaixa, listaDinCliente)
     listaDinCliente = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     prepararBebida(prodCliente)
-    agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela = compraProd(tam, desc, prodCliente, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela)
     return din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, listaDinCliente
         
 def organizaPosicao(listaPosicao, statusProd):
+    '''
+    Função que organiza a posição dos produtos.
+
+    Esta função recebe a lista com a posição dos produtos e outra com o status deles, verifica qual está disponível e reorganiza a posição, colocando os indisponíveis por último.
+
+    Argumentos:
+        listaPosicao (list): Lista com a posição dos produtos.
+        statusProd (list): Lista com o status de disponibilidade de cada produto.
+    '''
     disp = 0
     indis = len(listaPosicao) - 1
     for i in range(len(listaPosicao)):
@@ -1320,6 +1393,30 @@ def organizaPosicao(listaPosicao, statusProd):
             indis = indis - 1
         
 def verificaStatus(tam, desc, statusProd, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
+    '''
+    Função que verifica o status dos produtos.
+
+    Esta função faz a verificação se o produto pode ser produzido a depender do tamanho e tipo de preparo da bebida, ajustando a lista de status com base nessas informações.
+
+    Argumentos:
+        tam (float): tamanho da bebida escolhida do cliente.
+        desc (int): tipo de preparo da bebida (cafeinado ou descafeinado).
+        statusProd (list): Lista com o status de disponibilidade de cada produto.
+        cafeSol (float): variável com a quantidade de café solúvel.
+        cafeSolDesc (float): variável com a quantidade de café solúvel descafeinado.
+        leitePo (float): variável com a quantidade de leite em pó.
+        chocoPo (float): variável com a quantidade de chocolate em pó.
+        canela (float): variável com a quantidade de canela.
+        prodEspresso (list): lista com as informções do produto 'Espresso'.
+        prodCafePreto (list): lista com as informções do produto 'Café Preto'.
+        prodLatte (list): lista com as informções do produto 'Latte'.
+        prodCafeComLeite (list): lista com as informções do produto 'Café com Leite'.
+        prodLeiteComCafe (list): lista com as informções do produto 'Leite com Café'.
+        prodCappuccino (list): lista com as informções do produto 'Cappuccino'.
+        prodMacchiato (list): lista com as informções do produto 'Macchiato'.
+        prodMocha (list): lista com as informções do produto 'Mocha'.
+        prodChocoQuente (list): lista com as informções do produto 'Chocolate Quente'.
+    '''
     if tam == 1:
         mult = 1
     elif tam == 1.4:
@@ -1368,6 +1465,25 @@ def verificaStatus(tam, desc, statusProd, cafeSol, cafeSolDesc, leitePo, chocoPo
     statusProd[0], statusProd[1], statusProd[2], statusProd[3], statusProd[4], statusProd[5], statusProd[6], statusProd[7], statusProd[8] = prodEspresso[3], prodCafePreto[3], prodLatte[3], prodCafeComLeite[3], prodLeiteComCafe[3], prodCappuccino[3], prodMacchiato[3], prodMocha[3], prodChocoQuente[3]
 
 def calcFaturamento(prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente):
+    '''
+    Função que calcula o faturamento da máquina de bebidas.
+
+    Esta função soma todas as bebidas vendidas e retorna quanto foi faturado.
+
+    Argumentos:
+        prodEspresso (list): lista com as informções do produto 'Espresso'.
+        prodCafePreto (list): lista com as informções do produto 'Café Preto'.
+        prodLatte (list): lista com as informções do produto 'Latte'.
+        prodCafeComLeite (list): lista com as informções do produto 'Café com Leite'.
+        prodLeiteComCafe (list): lista com as informções do produto 'Leite com Café'.
+        prodCappuccino (list): lista com as informções do produto 'Cappuccino'.
+        prodMacchiato (list): lista com as informções do produto 'Macchiato'.
+        prodMocha (list): lista com as informções do produto 'Mocha'.
+        prodChocoQuente (list): lista com as informções do produto 'Chocolate Quente'.
+
+    Retorna:
+        float: valor do faturamento.
+    '''
     fat = 0
     fat = fat + prodEspresso[8] * prodEspresso[2] + prodEspresso[9] * prodEspresso[2] * 1.4 + prodEspresso[10] * prodEspresso[2] * 1.6
     fat = fat + prodCafePreto[8] * prodCafePreto[2] + prodCafePreto[9] * prodCafePreto[2] * 1.4 + prodCafePreto[10] * prodCafePreto[2] * 1.6
@@ -1380,7 +1496,35 @@ def calcFaturamento(prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, pr
     fat = fat + prodChocoQuente[8] * prodChocoQuente[2] + prodChocoQuente[9] * prodChocoQuente[2] * 1.4 + prodChocoQuente[10] * prodChocoQuente[2] * 1.6
     return round(fat, 2)
 
-def reposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG):
+def reposicaoInsumos(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG):
+    '''
+    Função que repõe insumos da máquina de bebidas.
+
+    Esta função permite que seja feita a reposição de insumos da máquina de bebidas.
+
+    Argumentos:
+        agua (int): variável com a quantidade de água.
+        cafeSol (float): variável com a quantidade de café solúvel.
+        cafeSolDesc (float): variável com a quantidade de café solúvel descafeinado.
+        leitePo (float): variável com a quantidade de leite em pó.
+        chocoPo (float): variável com a quantidade de chocolate em pó.
+        canela (float): variável com a quantidade de canela.
+        copoP (int): variável com a quantidade de copos de tamanho (P).
+        copoM (int): variável com a quantidade de copos de tamanho (M).
+        copoG (int): variável com a quantidade de copos de tamanho (G).
+
+    Retorna:
+        tuple: retorna uma tupla com os seguintes valores:
+            agua (int): Quantidade de água atualizada.
+            cafeSol (float): Quantidade de café solúvel atualizada.
+            cafeSolDesc (float): Quantidade de café solúvel descafeinado atualizada.
+            leitePo (float): Quantidade de leite em pó atualizada.
+            chocoPo (float): Quantidade de chocolate em pó atualizada.
+            canela (float): Quantidade de canela atualizada.
+            copoP (int): Quantidade de copos de tamanho (P) atualizada.
+            copoM (int): Quantidade de copos de tamanho (M) atualizada.
+            copoG (int): Quantidade de copos de tamanho (G) atualizada.
+    '''
     while True:
         telaReposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
 
@@ -1510,7 +1654,565 @@ def reposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM
                 print("Parâmetro inválido!")
                 time.sleep(1)
 
+def reposicaoDin(listaVal, listaCaixa):
+    '''
+    Função que repõe dinheiro do caixa da máquina.
+
+    Esta função repõe uma certa quantidade de notas e moedas definidas pelo usuário no caixa da máquina.
+
+    Argumentos:
+        listaVal (list): lista que contém os valores das notas e das moedas.
+        listaCaixa (list): lista que contém a quantidade de notas e moedas no caixa da máquina.
+
+    Retorna:
+        listaCaixa (list): lista com as novas quantidades de notas e moedas do caixa da máquina.
+    '''
+    while True:
+        telaCaixa(listaVal, listaCaixa)
+        repor = str(input("Digite o número do item para a reposição: "))
+        print()
+        match repor:
+            case "1":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade de notas de R$ 100,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[0] + x <= 100:
+                            listaCaixa[0] = listaCaixa[0] + x
+                            print()
+                            print(f"{x} notas de R$ 100,00 foram adicionadas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[0] + x > 100:
+                            print()
+                            print("Quantidade de notas excede o limite do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "2":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade de notas de R$ 50,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[1] + x <= 100:
+                            listaCaixa[1] = listaCaixa[1] + x
+                            print()
+                            print(f"{x} notas de R$ 50,00 foram adicionadas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[1] + x > 100:
+                            print()
+                            print("Quantidade de notas excede o limite do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "3":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade de notas de R$ 20,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[2] + x <= 100:
+                            listaCaixa[2] = listaCaixa[2] + x
+                            print()
+                            print(f"{x} notas de R$ 20,00 foram adicionadas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[2] + x > 100:
+                            print()
+                            print("Quantidade de notas excede o limite do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "4":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade de notas de R$ 10,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[3] + x <= 100:
+                            listaCaixa[3] = listaCaixa[3] + x
+                            print()
+                            print(f"{x} notas de R$ 10,00 foram adicionadas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[3] + x > 100:
+                            print()
+                            print("Quantidade de notas excede o limite do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "5":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade de notas de R$ 5,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[4] + x <= 100:
+                            listaCaixa[4] = listaCaixa[4] + x
+                            print()
+                            print(f"{x} notas de R$ 5,00 foram adicionadas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[4] + x > 100:
+                            print()
+                            print("Quantidade de notas excede o limite do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "6":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade de notas de R$ 2,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[5] + x <= 100:
+                            listaCaixa[5] = listaCaixa[5] + x
+                            print()
+                            print(f"{x} notas de R$ 2,00 foram adicionadas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[5] + x > 100:
+                            print()
+                            print("Quantidade de notas excede o limite do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "7":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade de moedas de R$ 1,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[6] + x <= 100:
+                            listaCaixa[6] = listaCaixa[6] + x
+                            print()
+                            print(f"{x} moedas de R$ 1,00 foram adicionadas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[6] + x > 100:
+                            print()
+                            print("Quantidade de moedas excede o limite do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "8":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade de moedas de R$ 0,50: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[7] + x <= 100:
+                            listaCaixa[7] = listaCaixa[7] + x
+                            print()
+                            print(f"{x} moedas de R$ 0,50 foram adicionadas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[7] + x > 100:
+                            print()
+                            print("Quantidade de moedas excede o limite do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "9":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade de moedas de R$ 0,25: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[8] + x <= 100:
+                            listaCaixa[8] = listaCaixa[8] + x
+                            print()
+                            print(f"{x} moedas de R$ 0,25 foram adicionadas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[8] + x > 100:
+                            print()
+                            print("Quantidade de moedas excede o limite do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "10":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade de moedas de R$ 0,10: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[9] + x <= 100:
+                            listaCaixa[9] = listaCaixa[9] + x
+                            print()
+                            print(f"{x} moedas de R$ 0,10 foram adicionadas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[9] + x > 100:
+                            print()
+                            print("Quantidade de moedas excede o limite do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "11":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade de moedas de R$ 0,05: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[10] + x <= 100:
+                            listaCaixa[10] = listaCaixa[10] + x
+                            print()
+                            print(f"{x} moedas de R$ 0,05 foram adicionadas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[10] + x > 100:
+                            print()
+                            print("Quantidade de moedas excede o limite do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "12":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade de moedas de R$ 0,01: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[11] + x <= 100:
+                            listaCaixa[11] = listaCaixa[11] + x
+                            print()
+                            print(f"{x} moedas de R$ 0,01 foram adicionadas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[11] + x > 100:
+                            print()
+                            print("Quantidade de moedas excede o limite do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "0":
+                return listaCaixa
+            case _:
+                print("Parâmetro inválido!")
+                time.sleep(1)
+
+def sangria(listaVal, listaCaixa):
+    '''
+    Função que retira dinheiro do caixa da máquina.
+
+    Esta função retira uma certa quantidade de notas e moedas definidas pelo usuário do caixa da máquina.
+
+    Argumentos:
+        listaVal (list): lista que contém os valores das notas e das moedas.
+        listaCaixa (list): lista que contém a quantidade de notas e moedas no caixa da máquina.
+
+    Retorna:
+        listaCaixa (list): lista com as novas quantidade de notas e moedas do caixa da máquina
+    '''
+    while True:
+        telaCaixa(listaVal, listaCaixa)
+        retirar = str(input("Digite o número do item para a retirada da sangria: "))
+        print()
+        match retirar:
+            case "1":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade a ser retirada de notas de R$ 100,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[0] - x >= 0:
+                            listaCaixa[0] = listaCaixa[0] - x
+                            print()
+                            print(f"{x} notas de R$ 100,00 foram retiradas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[0] - x < 0:
+                            print()
+                            print("Quantidade de notas fica abaixo do mínimo do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "2":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade a ser retirada de notas de R$ 50,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[1] - x >= 0:
+                            listaCaixa[1] = listaCaixa[1] - x
+                            print()
+                            print(f"{x} notas de R$ 50,00 foram retiradas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[1] - x < 0:
+                            print()
+                            print("Quantidade de notas fica abaixo do mínimo do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "3":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade a ser retirada de notas de R$ 20,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[2] - x >= 0:
+                            listaCaixa[2] = listaCaixa[2] - x
+                            print()
+                            print(f"{x} notas de R$ 20,00 foram retiradas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[2] - x < 0:
+                            print()
+                            print("Quantidade de notas fica abaixo do mínimo do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "4":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade a ser retirada de notas de R$ 10,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[3] - x >= 0:
+                            listaCaixa[3] = listaCaixa[3] - x
+                            print()
+                            print(f"{x} notas de R$ 10,00 foram retiradas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[3] - x < 0:
+                            print()
+                            print("Quantidade de notas fica abaixo do mínimo do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "5":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade a ser retirada de notas de R$ 5,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[4] - x >= 0:
+                            listaCaixa[4] = listaCaixa[4] - x
+                            print()
+                            print(f"{x} notas de R$ 5,00 foram retiradas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[4] - x < 0:
+                            print()
+                            print("Quantidade de notas fica abaixo do mínimo do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "6":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade a ser retirada de notas de R$ 2,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[5] - x >= 0:
+                            listaCaixa[5] = listaCaixa[5] - x
+                            print()
+                            print(f"{x} notas de R$ 2,00 foram retiradas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[5] - x < 0:
+                            print()
+                            print("Quantidade de notas fica abaixo do mínimo do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "7":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade a ser retirada de moedas de R$ 1,00: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[6] - x >= 0:
+                            listaCaixa[6] = listaCaixa[6] - x
+                            print()
+                            print(f"{x} moedas de R$ 1,00 foram retiradas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[6] - x < 0:
+                            print()
+                            print("Quantidade de moedas fica abaixo do mínimo do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "8":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade a ser retirada de moedas de R$ 0,50: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[7] - x >= 0:
+                            listaCaixa[7] = listaCaixa[7] - x
+                            print()
+                            print(f"{x} moedas de R$ 0,50 foram retiradas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[7] - x < 0:
+                            print()
+                            print("Quantidade de moedas fica abaixo do mínimo do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "9":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade a ser retirada de moedas de R$ 0,25: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[8] - x >= 0:
+                            listaCaixa[8] = listaCaixa[8] - x
+                            print()
+                            print(f"{x} moedas de R$ 0,25 foram retiradas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[8] - x < 0:
+                            print()
+                            print("Quantidade de moedas fica abaixo do mínimo do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "10":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade a ser retirada de moedas de R$ 0,10: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[9] - x >= 0:
+                            listaCaixa[9] = listaCaixa[9] - x
+                            print()
+                            print(f"{x} moedas de R$ 0,10 foram retiradas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[9] - x < 0:
+                            print()
+                            print("Quantidade de moedas fica abaixo do mínimo do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "11":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade a ser retirada de moedas de R$ 0,05: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[10] - x >= 0:
+                            listaCaixa[10] = listaCaixa[10] - x
+                            print()
+                            print(f"{x} moedas de R$ 0,05 foram retiradas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[10] - x < 0:
+                            print()
+                            print("Quantidade de moedas fica abaixo do mínimo do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "12":
+                while True:
+                    telaCaixa(listaVal, listaCaixa)
+                    print("Digite a quantidade a ser retirada de moedas de R$ 0,01: ", end="")
+                    x = digitarIntPositivo()
+                    if x != None:
+                        if x >= 0 and listaCaixa[11] - x >= 0:
+                            listaCaixa[11] = listaCaixa[11] - x
+                            print()
+                            print(f"{x} moedas de R$ 0,01 foram retiradas ao caixa.")
+                            time.sleep(1.5)
+                            break
+                        elif listaCaixa[11] - x < 0:
+                            print()
+                            print("Quantidade de moedas fica abaixo do mínimo do caixa interno!")
+                            print()
+                            time.sleep(1.5)
+                            break
+                    time.sleep(1)
+            case "0":
+                return listaCaixa
+            case _:
+                print("Parâmetro inválido!")
+                time.sleep(1)
+
 def venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG, prodEspresso, prodCafePreto, prodLatte, prodCafeComLeite, prodLeiteComCafe, prodCappuccino, prodMacchiato, prodMocha, prodChocoQuente, listaVal, listaCaixa, listaDinCliente, listaPosicao, statusProd):
+    '''
+    Função que faz a venda da bebida.
+
+    Esta função controla as telas dos menus que aparecem quando o cliente está comprando a bebida, verifica o valor digitado e redireciona para as respectivas funções.
+
+    Argumentos:
+        din (float): váriavel com o valor que o cliente colocou na máquina.
+        agua (int): variável com a quantidade de água.
+        cafeSol (float): variável com a quantidade de café solúvel.
+        cafeSolDesc (float): variável com a quantidade de café solúvel descafeinado.
+        leitePo (float): variável com a quantidade de leite em pó.
+        chocoPo (float): variável com a quantidade de chocolate em pó.
+        canela (float): variável com a quantidade de canela.
+        copoP (int): variável com a quantidade de copos de tamanho (P).
+        copoM (int): variável com a quantidade de copos de tamanho (M).
+        copoG (int): variável com a quantidade de copos de tamanho (G).
+        prodEspresso (list): lista com as informções do produto 'Espresso'.
+        prodCafePreto (list): lista com as informções do produto 'Café Preto'.
+        prodLatte (list): lista com as informções do produto 'Latte'.
+        prodCafeComLeite (list): lista com as informções do produto 'Café com Leite'.
+        prodLeiteComCafe (list): lista com as informções do produto 'Leite com Café'.
+        prodCappuccino (list): lista com as informções do produto 'Cappuccino'.
+        prodMacchiato (list): lista com as informções do produto 'Macchiato'.
+        prodMocha (list): lista com as informções do produto 'Mocha'.
+        prodChocoQuente (list): lista com as informções do produto 'Chocolate Quente'.
+        listaVal (list): lista que contém os valores das notas e das moedas.
+        listaCaixa (list): lista que contém a quantidade de notas e moedas no caixa da máquina.
+        listaDinCliente (list): lista que contém a quantidade de dinheiro do cliente.
+        listaPosição (list): lista com a ordem dos produtos.
+        statusProd (list): Lista com o status de disponibilidade de cada produto.
+
+    Retorna:
+        tuple: Retorna uma tupla com os seguintes valores:
+            agua (int): Quantidade de água atualizada.
+            cafeSol (float): Quantidade de café solúvel atualizada.
+            cafeSolDesc (float): Quantidade de café solúvel descafeinado atualizada.
+            leitePo (float): Quantidade de leite em pó atualizada.
+            chocoPo (float): Quantidade de chocolate em pó atualizada.
+            canela (float): Quantidade de canela atualizada.
+            copoP (int): Quantidade de copos de tamanho (P) atualizada.
+            copoM (int): Quantidade de copos de tamanho (M) atualizada.
+            copoG (int): Quantidade de copos de tamanho (G) atualizada.
+            prodEspresso (list): lista com as informções do produto 'Espresso' atualizadas.
+            prodCafePreto (list): lista com as informções do produto 'Café Preto' atualizadas.
+            prodLatte (list): lista com as informções do produto 'Latte' atualizadas.
+            prodCafeComLeite (list): lista com as informções do produto 'Café com Leite' atualizadas.
+            prodLeiteComCafe (list): lista com as informções do produto 'Leite com Café' atualizadas.
+            prodCappuccino (list): lista com as informções do produto 'Cappuccino' atualizadas.
+            prodMacchiato (list): lista com as informções do produto 'Macchiato' atualizadas.
+            prodMocha (list): lista com as informções do produto 'Mocha' atualizadas.
+            prodChocoQuente (list): lista com as informções do produto 'Chocolate Quente' atualizadas.
+            listaCaixa (list): lista que contém a quantidade de notas e moedas no caixa da máquina atualizadas.
+            listaDinCliente (list): lista que contém a quantidade de dinheiro do cliente atualizado.
+    '''
     while True:
         if agua < 50:
             telaMsgSemAgua()
@@ -1580,7 +2282,7 @@ def venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copo
                     if prodCliente == 0:
                         break
                     telaConfimacao(prodCliente)
-                    res = str(input(f"Deseja preparar {prodCliente[1]}? S/N: "))
+                    res = str(input(f"Deseja preparar {prodCliente[1]}? "))
                     while True:
                         if res == "S" or res == "s" or res == "1":
                             break
@@ -1618,7 +2320,7 @@ def venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copo
                             time.sleep(1)
                         elif temTroco == False:
                             print("Infelizmente a máquina está sem troco para a quantia fornecida.")
-                            time.sleep(1)
+                            time.sleep(2)
                         telaPrefencia()
                         print("Agradecemos pela preferência!")
                         somarLista(listaCaixa, listaDinCliente)
@@ -1631,6 +2333,11 @@ def venda(din, agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copo
 
 
 def main():
+    '''
+    Função que controla os menus da máquina de bebidas.
+
+    Esta função controla quais as telas que aparecem para o usuário a depender do valor escolhido pelo mesmo.
+    '''
     limpaTela()
 
     listaVal = [100, 50, 20, 10, 5, 2, 1, 0.50, 0.25, 0.10, 0.05, 0.01]
@@ -1663,9 +2370,6 @@ def main():
     copoM = 100 # copo de 130ml
     copoG = 100 # copo de 180ml
 
-    #telaQuemSomos()
-    #time.sleep(1000)
-
     while True:
         telaInicial()
         menu = str(input("Escolha uma opção: "))
@@ -1683,7 +2387,11 @@ def main():
                         case "2":
                             telaInfProd()
                         case "3":
-                            agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG = reposicao(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
+                            agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG = reposicaoInsumos(agua, cafeSol, cafeSolDesc, leitePo, chocoPo, canela, copoP, copoM, copoG)
+                        case "4":
+                            listaCaixa = reposicaoDin(listaVal, listaCaixa)
+                        case "5":
+                            listaCaixa = sangria(listaVal, listaCaixa)
                         case "0":
                             break
                         case _:
